@@ -1,6 +1,7 @@
 package com.davisan.ia.core;
 
 import java.lang.reflect.Array;
+import java.util.Random;
 
 public class utils
 {
@@ -23,4 +24,19 @@ public class utils
         }
     }
 
+    public static void shuffle(double[][] v, double[][] o)
+    {
+        for(int i = v.length-1; i >= 1; --i)
+        {
+                int j = new Random().nextInt(i+1);
+                
+                double[] tmp = v[i];
+                v[i] = v[j];
+                v[j] = tmp;
+                
+                tmp = o[i];
+                o[i] = o[j];
+                o[j] = tmp;
+        }
+    }
 }

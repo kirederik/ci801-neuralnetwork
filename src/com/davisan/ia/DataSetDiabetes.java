@@ -1,16 +1,17 @@
 package com.davisan.ia;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Locale;
 import java.util.Scanner;
 
 import com.davisan.ia.core.DataSet;
 import com.davisan.ia.core.utils;
 
-public class DataSetCancer extends DataSet
+public class DataSetDiabetes extends DataSet
 {
-    public DataSetCancer(String arquivo, int numEntradas, int numSaidas) throws Exception
+    public DataSetDiabetes(String arquivo, int numEntradas, int numSaidas) throws Exception
     {
         this.numEntradas = numEntradas;
         this.numSaidas = numSaidas;
@@ -23,11 +24,11 @@ public class DataSetCancer extends DataSet
         String str;
         while( (str = in.readLine()) != null)
         {
-            str = str.replace('?', '0'); // substitui o erro
-            
+            //str = str.replace('?', '0'); // substitui o erro
+    
             Scanner scan = new Scanner(str);
             scan.useDelimiter(",");
-            scan.nextDouble();
+            scan.useLocale(Locale.US);
             
             double[] tmp = new double[numEntradas];
             for(int i = 0; i<numEntradas; ++i)
@@ -36,12 +37,12 @@ public class DataSetCancer extends DataSet
             double[] tmp2 = new double[numSaidas];
             double out = scan.nextDouble();
             
-            if(out == 2)
+            if(out == 0)
             {
                 tmp2[0] = 1;
                 tmp2[1] = 0;
             }
-            else if(out == 4)
+            else if(out == 1)
             {
                 tmp2[0] = 0;
                 tmp2[1] = 1;
@@ -69,7 +70,7 @@ public class DataSetCancer extends DataSet
     {
         try
         {
-            DataSetCancer data = new DataSetCancer("bases/cancer.data", 9, 2);
+            DataSet data = new DataSetDiabetes("bases/pima-indians-diabetes.data", 8, 2);
         }
         catch (Exception e)
         {

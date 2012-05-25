@@ -55,8 +55,8 @@ public class GeneticAlgorithm
         try
         {
             MLPIndividual.dataset = new DataSetCancer("bases/cancer.data", 9, 2);
-            MLPIndividual.dataset.faixaAmostra[0] = 0;
-            MLPIndividual.dataset.faixaAmostra[1] = 350;
+            MLPIndividual.dataset.faixaTreinamento[0] = 0;
+            MLPIndividual.dataset.faixaTreinamento[1] = 350;
             
             GeneticAlgorithm.Evolve(new MLPIndividual(9,5,2), 50, 1000);
             System.out.println("fim! " + GeneticAlgorithm.best.toString());

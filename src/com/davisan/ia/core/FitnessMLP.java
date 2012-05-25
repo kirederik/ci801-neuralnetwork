@@ -9,7 +9,7 @@ public class FitnessMLP
     public static double fitness(MultiLayerPerceptron mlp, DataSet teste) throws Exception
     {
         double res = 0;
-        for(int i=teste.faixaAmostra[0]; i < teste.faixaAmostra[1]; ++i) // para cada teste
+        for(int i=teste.faixaTreinamento[0]; i < teste.faixaTreinamento[1]; ++i) // para cada teste
         {
             double[] out = new double[teste.numSaidas];
 
