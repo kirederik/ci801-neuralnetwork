@@ -16,10 +16,10 @@ public class MainIris
     {
         try
         {
-            int popsize = 25;
+            int popsize = 50;
             int geracoes = 100;
             Torneio.TamTorneio = 4;
-            GeneticAlgorithm.propMutacao = 0.5;
+            GeneticAlgorithm.propMutacao = 0.8;
             GeneticAlgorithm.propCrossover = 0.8;
             MLPIndividual.dataset = new DataSetIris("bases/iris.data", 4, 3);
             MLPIndividual.dataset.faixaTreinamento[0] = 0;

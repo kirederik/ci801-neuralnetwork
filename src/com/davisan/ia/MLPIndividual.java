@@ -27,7 +27,7 @@ public class MLPIndividual implements Individual
 
     public MLPIndividual(int numEntrada, int numEscondida, int numSaida)
     {
-        cromo = new MLPChromossome(new MultiLayerPerceptron(numEntrada, numEscondida, numSaida, new InicializacaoDistNormal(0,1)));
+        cromo = new MLPChromossome(new MultiLayerPerceptron(numEntrada, numEscondida, numSaida, new InicializacaoDistNormal(0,5)));
     }
     
     private MLPIndividual()
@@ -38,7 +38,7 @@ public class MLPIndividual implements Individual
     public Individual novo()
     {
         MLPIndividual ind = new MLPIndividual();
-        ind.cromo = new MLPChromossome(new MultiLayerPerceptron(cromo.params[0], cromo.params[1], cromo.params[2], new InicializacaoDistNormal(0,1)));
+        ind.cromo = new MLPChromossome(new MultiLayerPerceptron(cromo.params[0], cromo.params[1], cromo.params[2], new InicializacaoDistNormal(0,5)));
         return ind;
     }
     
@@ -99,11 +99,13 @@ public class MLPIndividual implements Individual
         /**/
         for(int i = 0; i < p1.cromo.genes.length; ++i)
         {
-            double t = alpha * p1.cromo.genes[i] + (1-alpha) * p2.cromo.genes[i];
-            double s =  beta * p2.cromo.genes[i] + (1-beta ) * p1.cromo.genes[i];
-           
-            p1.cromo.genes[i] = t;
-            p2.cromo.genes[i] = s;
+            if(GeneticAlgorithm.propCrossover >= new Random().nextDouble())
+            {
+                double t = alpha * p1.cromo.genes[i] + (1-alpha) * p2.cromo.genes[i];
+                double s =  beta * p2.cromo.genes[i] + (1-beta ) * p1.cromo.genes[i];
+                p1.cromo.genes[i] = t;
+                p2.cromo.genes[i] = s;
+            }
         }
         
         ind[0] = p1;

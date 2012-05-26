@@ -15,11 +15,11 @@ public class MainDiabetes
     {
         try
         {
-            int popsize = 25;
-            int geracoes = 100;
+            int popsize = 60;
+            int geracoes = 200;
             Torneio.TamTorneio = 4;
-            GeneticAlgorithm.propMutacao = 0.5;
-            GeneticAlgorithm.propCrossover = 0.8;
+            GeneticAlgorithm.propMutacao = 0.1;
+            GeneticAlgorithm.propCrossover = 0.9;
             MLPIndividual.dataset = new DataSetDiabetes("bases/pima-indians-diabetes.data", 8, 2);
             MLPIndividual.dataset.faixaTreinamento[0] = 0;
             MLPIndividual.dataset.faixaTreinamento[1] = 252;

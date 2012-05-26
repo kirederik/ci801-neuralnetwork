@@ -17,10 +17,10 @@ public class MainCancer
     {
         try
         {
-            int popsize = 25;
+            int popsize = 30;
             int geracoes = 100;
             Torneio.TamTorneio = 4;
-            GeneticAlgorithm.propMutacao = 0.5;
+            GeneticAlgorithm.propMutacao = 0.1;
             GeneticAlgorithm.propCrossover = 0.8;
             
             MLPIndividual.dataset = new DataSetCancer("bases/cancer.data", 9, 2);
