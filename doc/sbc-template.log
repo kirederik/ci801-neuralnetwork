@@ -1,13 +1,15 @@
-This is pdfeTeX, Version 3.141592-1.21a-2.2 (MiKTeX 2.4) (preloaded format=latex 2006.3.8)  21 MAR 2006 15:48
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.5.28)  28 MAY 2012 12:56
 entering extended mode
-**C:/Documents*and*Settings/nedel/My*Documents/SBC-template/template-latex/sbc-template.tex
-(C:/Documents and Settings/nedel/My Documents/SBC-template/template-latex/sbc-template.tex
-LaTeX2e <2003/12/01>
-Babel <v3.8g> and hyphenation patterns for english, dumylang, nohyphenation, german, ngerman, french, loaded.
-(C:\texmf\tex\latex\base\article.cls
-Document Class: article 2004/02/16 v1.4f Standard LaTeX document class
-(C:\texmf\tex\latex\base\size12.clo
-File: size12.clo 2004/02/16 v1.4f Standard LaTeX file (size option)
+ %&-line parsing enabled.
+**sbc-template.tex
+(./sbc-template.tex
+LaTeX2e <2009/09/24>
+Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, portuguese, loaded.
+(/usr/share/texmf-texlive/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texmf-texlive/tex/latex/base/size12.clo
+File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
 \c@section=\count80
@@ -20,14 +22,23 @@ File: size12.clo 2004/02/16 v1.4f Standard LaTeX file (size option)
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
-) (sbc-template.sty
+) (./sbc-template.sty
 Package: sbc-template 2001/06/09
- (C:\texmf\tex\latex\geometry\geometry.sty
-Package: geometry 2002/07/08 v3.2 Page Geometry
 
-(C:\texmf\tex\latex\graphics\keyval.sty
+(/usr/share/texmf-texlive/tex/latex/geometry/geometry.sty
+Package: geometry 2008/12/21 v4.2 Page Geometry
+
+(/usr/share/texmf-texlive/tex/latex/graphics/keyval.sty
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks14
+)
+(/usr/share/texmf-texlive/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2009/04/10 v2.0 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in pdf mode detected.
+)
+(/usr/share/texmf-texlive/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2008/11/04 v1.4 Switches for detecting VTeX and its modes (HO)
+Package ifvtex Info: VTeX not detected.
 )
 \Gm@cnth=\count87
 \Gm@cntv=\count88
@@ -37,57 +48,100 @@ Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \Gm@odd@mp=\dimen105
 \Gm@even@mp=\dimen106
 \Gm@dimlist=\toks15
- (C:\texmf\tex\latex\geometry\geometry.cfg)) (caption2.sty
-Package: caption2 2002/08/03 v2.1 Customising captions (AS)
-\captionmargin=\dimen107
-\captionwidth=\dimen108
-\captionindent=\dimen109
-Package caption2 Info: Running in caption2 v2.0 compatibility mode on input line 147.
-\captionlinewidth=\dimen110
 )
-(C:\texmf\tex\latex\psnfss\times.sty
+(/usr/share/texmf-texlive/tex/latex/caption/caption2.sty
+Package: caption2 2008/07/01 v2.2c Customising captions (AS)
+
+
+Package caption2 Warning: ****************************************************
+(caption2)                THIS PACKAGE IS OBSOLETE:
+(caption2)                This package attempts to provide an `caption2'
+(caption2)                package v2.0/2.1 author environment so that OLD
+(caption2)                documents can be successfully processed. It should
+(caption2)                NOT be used for NEW documents! New documents should
+(caption2)                use the regular `caption' package v3.x instead.
+(caption2)                ****************************************************
+
+(/usr/share/texmf-texlive/tex/latex/caption/caption3.sty
+Package: caption3 2009/10/09 v3.1k caption3 kernel (AR)
+\captionmargin=\dimen107
+\captionmargin@=\dimen108
+\captionwidth=\dimen109
+\caption@indent=\dimen110
+\caption@parindent=\dimen111
+\caption@hangindent=\dimen112
+)
+Package caption2 Info: Running in caption2 v2.0 compatibility mode on input lin
+e 209.
+\captionlinewidth=\dimen113
+\realcaptionwidth=\dimen114
+)
+(/usr/share/texmf-texlive/tex/latex/psnfss/times.sty
 Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
 )
 \c@instn=\count90
- (C:\texmf\tex\latex\titlesec\titlesec.sty
-Package: titlesec 2005/01/22 v2.6 Sectioning titles
+
+(/usr/share/texmf-texlive/tex/latex/titlesec/titlesec.sty
+Package: titlesec 2007/08/12 v2.8 Sectioning titles
 \ttl@box=\box26
 \beforetitleunit=\skip43
 \aftertitleunit=\skip44
-\ttl@plus=\dimen111
-\ttl@minus=\dimen112
-\titlewidth=\dimen113
-\titlewidthlast=\dimen114
-\titlewidthfirst=\dimen115
-
-(C:\texmf\tex\latex\titlesec\titlesec.new))) (C:\texmf\tex\latex\graphics\graphicx.sty
+\ttl@plus=\dimen115
+\ttl@minus=\dimen116
+\ttl@toksa=\toks16
+\titlewidth=\dimen117
+\titlewidthlast=\dimen118
+\titlewidthfirst=\dimen119
+))
+(/usr/share/texmf-texlive/tex/latex/graphics/graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-(C:\texmf\tex\latex\graphics\graphics.sty
-Package: graphics 2001/07/07 v1.0n Standard LaTeX Graphics (DPC,SPQR)
- (C:\texmf\tex\latex\graphics\trig.sty
+(/usr/share/texmf-texlive/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf-texlive/tex/latex/graphics/trig.sty
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-(C:\texmf\tex\latex\00miktex\graphics.cfg
-File: graphics.cfg 2005/12/29 v1.2 MiKTeX 'graphics' configuration
+(/etc/texmf/tex/latex/config/graphics.cfg
+File: graphics.cfg 2009/08/28 v1.8 graphics configuration of TeX Live
 )
-Package graphics Info: Driver file: pdftex.def on input line 80.
- (C:\texmf\tex\latex\graphics\pdftex.def
-File: pdftex.def 2005/06/20 v0.03m graphics/color for pdftex
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+(/usr/share/texmf-texlive/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2010/03/12 v0.04p Graphics/color for pdfTeX
 \Gread@gobject=\count91
 ))
-\Gin@req@height=\dimen116
-\Gin@req@width=\dimen117
+\Gin@req@height=\dimen120
+\Gin@req@width=\dimen121
 )
-(C:\texmf\tex\latex\ltxmisc\url.sty
+(/usr/share/texmf-texlive/tex/latex/ltxmisc/url.sty
 \Urlmuskip=\muskip10
-Package: url 2005/06/27  ver 3.2  Verb mode for urls, etc.
-) (C:\texmf\tex\latex\base\inputenc.sty
-Package: inputenc 2004/02/05 v1.0d Input encoding file
- (C:\texmf\tex\latex\base\latin1.def
-File: latin1.def 2004/02/05 v1.0d Input encoding file
+Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
+)
+(/usr/share/texmf-texlive/tex/generic/babel/babel.sty
+Package: babel 2008/07/06 v3.8l The Babel package
+
+(/usr/share/texmf-texlive/tex/generic/babel/portuges.ldf
+Language: portuges 2008/03/18 v1.2q Portuguese support from the babel system
+
+(/usr/share/texmf-texlive/tex/generic/babel/babel.def
+File: babel.def 2008/07/06 v3.8l Babel common definitions
+\babel@savecnt=\count92
+\U@D=\dimen122
+)
+\l@brazil = a dialect from \language\l@portuges 
+Package babel Info: Making " an active character on input line 145.
 ))
-(sbc-template.aux)
+(/usr/share/texmf-texlive/tex/latex/base/inputenc.sty
+Package: inputenc 2008/03/30 v1.1d Input encoding file
+\inpenc@prehook=\toks17
+\inpenc@posthook=\toks18
+
+(/usr/share/texmf-texlive/tex/latex/base/latin1.def
+File: latin1.def 2008/03/30 v1.1d Input encoding file
+)) (./sbc-template.aux)
+\openout1 = `sbc-template.aux'.
+
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
 LaTeX Font Info:    ... okay on input line 32.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
@@ -101,9 +155,12 @@ LaTeX Font Info:    ... okay on input line 32.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
 LaTeX Font Info:    ... okay on input line 32.
 LaTeX Font Info:    Try loading font information for OT1+ptm on input line 32.
- (C:\texmf\tex\latex\psnfss\ot1ptm.fd
+
+(/usr/share/texmf-texlive/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
+*geometry auto-detecting driver*
+*geometry detected driver: pdftex*
 -------------------- Geometry parameters
 paper: a4paper
 landscape: --
@@ -143,39 +200,20 @@ driver: pdftex
 
 (1in=72.27pt, 1cm=28.45pt)
 -----------------------
- (C:\texmf\tex\context\base\supp-pdf.tex
-(C:\texmf\tex\context\base\supp-mis.tex
-loading : Context Support Macros / Miscellaneous (2004.10.26)
-\protectiondepth=\count92
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+(/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count93
-\scratchtoks=\toks16
-\scratchdimen=\dimen118
-\scratchskip=\skip45
-\scratchmuskip=\muskip11
+\scratchdimen=\dimen123
 \scratchbox=\box27
-\scratchread=\read1
-\scratchwrite=\write3
-\zeropoint=\dimen119
-\onepoint=\dimen120
-\onebasepoint=\dimen121
-\minusone=\count94
-\thousandpoint=\dimen122
-\onerealpoint=\dimen123
-\emptytoks=\toks17
-\nextbox=\box28
-\nextdepth=\dimen124
-\everyline=\toks18
-\!!counta=\count95
-\!!countb=\count96
-\recursecounter=\count97
-)
-loading : Context Support Macros / PDF (2004.03.26)
-\nofMPsegments=\count98
-\nofMParguments=\count99
-\MPscratchCnt=\count100
-\MPscratchDim=\dimen125
-\MPnumerator=\count101
-\everyMPtoPDFconversion=\toks19
+\nofMPsegments=\count94
+\nofMParguments=\count95
+\everyMPshowfont=\toks19
+\MPscratchCnt=\count96
+\MPscratchDim=\dimen124
+\MPnumerator=\count97
+\everyMPtoPDFconversion=\toks20
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <16> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 34.
@@ -188,11 +226,12 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 34.
 LaTeX Font Info:    Try loading font information for OT1+pcr on input line 34.
- (C:\texmf\tex\latex\psnfss\ot1pcr.fd
+ (/usr/share/texmf-texlive/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 LaTeX Font Info:    Try loading font information for OMS+pcr on input line 34.
- (C:\texmf\tex\latex\psnfss\omspcr.fd
+
+(/usr/share/texmf-texlive/tex/latex/psnfss/omspcr.fd
 File: omspcr.fd 
 )
 LaTeX Font Info:    Font shape `OMS/pcr/m/n' in size <10> not available
@@ -203,37 +242,45 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <13> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 55.
  [1
 
-{psfonts.map}]
-<fig1.jpg, id=26, 254.3904pt x 232.2276pt>
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] <fig1.jpg, id=12, 254.3904
+pt x 232.2276pt>
 File: fig1.jpg Graphic file (type jpg)
- <use fig1.jpg>
+
+<use fig1.jpg>
 LaTeX Font Info:    Try loading font information for OT1+phv on input line 115.
- (C:\texmf\tex\latex\psnfss\ot1phv.fd
+
+ (/usr/share/texmf-texlive/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 )
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <10> not available
 (Font)              Font shape `OT1/phv/b/n' tried instead on input line 115.
 
-<fig2.jpg, id=27, 205.7286pt x 234.1548pt>
+<fig2.jpg, id=13, 205.7286pt x 234.1548pt>
 File: fig2.jpg Graphic file (type jpg)
- <use fig2.jpg> <table.jpg, id=28, 365.2044pt x 217.2918pt>
+ <use fig2.jpg>
+<table.jpg, id=14, 365.2044pt x 217.2918pt>
 File: table.jpg Graphic file (type jpg)
- <use table.jpg>
-[2 <fig1.jpg>] (sbc-template.bbl [3 <fig2.jpg> <table.jpg>]) [4] (sbc-template.aux) ) 
+ <use table.jpg> [2 <./fig1.jpg>]
+(./sbc-template.bbl [3 <./fig2.jpg> <./table.jpg>]) [4] (./sbc-template.aux) ) 
 Here is how much of TeX's memory you used:
- 2037 strings out of 95515
- 24789 string characters out of 1189490
- 75807 words of memory out of 1076518
- 5043 multiletter control sequences out of 60000
- 21033 words of font info for 44 fonts, out of 1000000 for 2000
- 14 hyphenation exceptions out of 8191
- 30i,10n,28p,343b,317s stack positions out of 5000i,500n,10000p,200000b,32768s
+ 2864 strings out of 495041
+ 40333 string characters out of 1181897
+ 99010 words of memory out of 3000000
+ 6018 multiletter control sequences out of 15000+50000
+ 21033 words of font info for 44 fonts, out of 3000000 for 9000
+ 30 hyphenation exceptions out of 8191
+ 43i,8n,40p,261b,321s stack positions out of 5000i,500n,10000p,200000b,50000s
+{
+/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texlive/
+fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-texlive/fonts/type1/p
+ublic/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/urw/courier/
+ucrr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/
+share/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texlive/
+fonts/type1/urw/times/utmbi8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/tim
+es/utmr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmri8a.pfb>
+Output written on sbc-template.pdf (4 pages, 215035 bytes).
 PDF statistics:
- 40 PDF objects out of 300000
- 0 named destinations out of 300000
- 16 words of extra memory for PDF output out of 65536
-{8r.enc}<C:\texmf\fonts\type1\urw\u
-rwstd\uhvb8a.pfb><C:\texmf\fonts\type1\urw\urwstd\utmri8a.pfb><C:\texmf\fonts\type1\urw\urwstd\utmbi8a.pfb><C:\texmf\fon
-ts\type1\urw\urwstd\ucrr8a.pfb><C:\texmf\fonts\type1\bluesky\cm\cmsy10.pfb><C:\texmf\fonts\type1\urw\urwstd\utmr8a.pfb><
-C:\texmf\fonts\type1\bluesky\cm\cmr8.pfb><C:\texmf\fonts\type1\urw\urwstd\utmb8a.pfb>
-Output written on sbc-template.pdf (4 pages, 206436 bytes).
+ 51 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+
