@@ -1,11 +1,10 @@
-import java.util.Arrays;
+
 
 import com.davisan.ia.DataSetCancer;
 import com.davisan.ia.GeneticAlgorithm;
 import com.davisan.ia.MLPIndividual;
 import com.davisan.ia.TestarSaidaMLP;
 import com.davisan.ia.Torneio;
-import com.davisan.ia.core.DataSet;
 import com.davisan.ia.core.MLP.MultiLayerPerceptron;
 
 
@@ -21,7 +20,7 @@ public class MainCancer
             int geracoes = 100;
             Torneio.TamTorneio = 4;
             GeneticAlgorithm.propMutacao = 0.1;
-            GeneticAlgorithm.propCrossover = 0.8;
+            GeneticAlgorithm.propCrossover = 0.9;
             
             MLPIndividual.dataset = new DataSetCancer("bases/cancer.data", 9, 2);
             MLPIndividual.dataset.faixaTreinamento[0] = 0;

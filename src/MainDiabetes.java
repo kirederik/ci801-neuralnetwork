@@ -1,6 +1,4 @@
-import java.util.Arrays;
 
-import com.davisan.ia.DataSetCancer;
 import com.davisan.ia.DataSetDiabetes;
 import com.davisan.ia.GeneticAlgorithm;
 import com.davisan.ia.MLPIndividual;
@@ -9,17 +7,18 @@ import com.davisan.ia.Torneio;
 import com.davisan.ia.core.MLP.MultiLayerPerceptron;
 
 
+
 public class MainDiabetes
 {
     public static void main(String[] args)
     {
         try
         {
-            int popsize = 60;
-            int geracoes = 200;
+            int popsize = 50;
+            int geracoes = 100;
             Torneio.TamTorneio = 4;
             GeneticAlgorithm.propMutacao = 0.1;
-            GeneticAlgorithm.propCrossover = 0.9;
+            GeneticAlgorithm.propCrossover = 1.0;
             MLPIndividual.dataset = new DataSetDiabetes("bases/pima-indians-diabetes.data", 8, 2);
             MLPIndividual.dataset.faixaTreinamento[0] = 0;
             MLPIndividual.dataset.faixaTreinamento[1] = 252;

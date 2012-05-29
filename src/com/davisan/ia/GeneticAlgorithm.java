@@ -29,7 +29,7 @@ public class GeneticAlgorithm
                 if(best == null || P.get(i).fitness() < best.fitness()) // sinal trocado
                     best = P.get(i);
             }
-            //System.out.println("Iteracao: " + g + "\nFitness do Melhor Individuo: " + best.fitness() + "\n");
+            System.out.println("Iteracao: " + g + "\nFitness do Melhor Individuo: " + best.fitness() + "\n");
             
             
             ArrayList<Individual> Q = new ArrayList<Individual>();

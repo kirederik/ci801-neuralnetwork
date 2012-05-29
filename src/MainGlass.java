@@ -1,5 +1,6 @@
 
-import com.davisan.ia.DataSetIris;
+import com.davisan.ia.DataSetGlass;
+import com.davisan.ia.DataSetHeart;
 import com.davisan.ia.GeneticAlgorithm;
 import com.davisan.ia.MLPIndividual;
 import com.davisan.ia.TestarSaidaMLP;
@@ -7,7 +8,7 @@ import com.davisan.ia.Torneio;
 import com.davisan.ia.core.MLP.MultiLayerPerceptron;
 
 
-public class MainIris
+public class MainGlass
 {
     public static void main(String[] args)
     {
@@ -18,15 +19,15 @@ public class MainIris
             Torneio.TamTorneio = 4;
             GeneticAlgorithm.propMutacao = 0.1;
             GeneticAlgorithm.propCrossover = 0.9;
-            MLPIndividual.dataset = new DataSetIris("bases/iris.data", 4, 3);
+            MLPIndividual.dataset = new DataSetGlass("bases/glass.data", 9, 7);
             MLPIndividual.dataset.faixaTreinamento[0] = 0;
-            MLPIndividual.dataset.faixaTreinamento[1] = 70;
-            MLPIndividual.dataset.faixaValidacao[0] = 70;
-            MLPIndividual.dataset.faixaValidacao[1] = 110;
-            MLPIndividual.dataset.faixaTeste[0] = 110;
-            MLPIndividual.dataset.faixaTeste[1] = 150;
+            MLPIndividual.dataset.faixaTreinamento[1] = 114;
+            MLPIndividual.dataset.faixaValidacao[0] = 114;
+            MLPIndividual.dataset.faixaValidacao[1] = 164;
+            MLPIndividual.dataset.faixaTeste[0] = 164;
+            MLPIndividual.dataset.faixaTeste[1] = 214;
             
-            GeneticAlgorithm.Evolve(new MLPIndividual(4,10,3), popsize, geracoes);
+            GeneticAlgorithm.Evolve(new MLPIndividual(9,10,7), popsize, geracoes);
             System.out.println("fim! " + GeneticAlgorithm.best.toString());
             MultiLayerPerceptron bestMLP = ((MLPIndividual)GeneticAlgorithm.best).createtMLP();
                         
