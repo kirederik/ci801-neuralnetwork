@@ -16,8 +16,8 @@ public class MainCancer
     {
         try
         {
-            int popsize = 30;
-            int geracoes = 100;
+            int popsize = 50;
+            int geracoes = 500;
             Torneio.TamTorneio = 4;
             GeneticAlgorithm.propMutacao = 0.1;
             GeneticAlgorithm.propCrossover = 0.9;
@@ -29,7 +29,11 @@ public class MainCancer
             MLPIndividual.dataset.faixaValidacao[1] = 525;
             MLPIndividual.dataset.faixaTeste[0] = 525;
             MLPIndividual.dataset.faixaTeste[1] = 699;
-            GeneticAlgorithm.Evolve(new MLPIndividual(9,5,2), popsize, geracoes);
+            
+            
+            //GeneticAlgorithm.Evolve(new MLPIndividual(9,5,2), popsize, geracoes, 10);
+            GeneticAlgorithm.Evolve(new LiuWangIndividual(9,5,2), popsize, geracoes, 10);
+            
             System.out.println("fim! " + GeneticAlgorithm.best.toString());
             
             MultiLayerPerceptron bestMLP = ((MLPIndividual)GeneticAlgorithm.best).createtMLP();

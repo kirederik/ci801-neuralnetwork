@@ -4,6 +4,6 @@ public interface Individual
 {
     public Individual novo();
     public double fitness();
-    public void mutate(double p);
+    public void mutate();
     public Individual[] crossOver(Individual other);
 }

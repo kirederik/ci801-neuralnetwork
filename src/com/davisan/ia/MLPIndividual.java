@@ -11,7 +11,7 @@ import com.davisan.ia.core.MLP.MultiLayerPerceptron;
 
 public class MLPIndividual implements Individual
 {
-    private MLPChromossome cromo = null;
+    public MLPChromossome cromo = null;
     public static DataSet dataset = null;
     
     public MultiLayerPerceptron createtMLP() throws Exception
@@ -30,7 +30,7 @@ public class MLPIndividual implements Individual
         cromo = new MLPChromossome(new MultiLayerPerceptron(numEntrada, numEscondida, numSaida, new InicializacaoDistNormal(0,5)));
     }
     
-    private MLPIndividual()
+    protected MLPIndividual()
     {
     }
 
@@ -57,22 +57,20 @@ public class MLPIndividual implements Individual
         }
         catch (Exception e)
         {
-            System.out.println("erro");
-            // TODO Auto-generated catch block
             e.printStackTrace();
             System.exit(1);
             return 0;
         }
     }
-    public void mutate(double p)
+    public void mutate()
     {
-        double desvp = 1;
+        double desvp = 2000;
         double min = -50;
         double max = 50;
         
         for(int i=0; i < cromo.genes.length; ++i)
         {
-            if(p >= new Random().nextDouble())
+            if(GeneticAlgorithm.propMutacao >= new Random().nextDouble())
             {
                 double n = 0;
                 //do
@@ -90,9 +88,10 @@ public class MLPIndividual implements Individual
         MLPIndividual[] ind = new MLPIndividual[2]; 
         MLPIndividual p1 = this.clone();
         MLPIndividual p2 = ((MLPIndividual) other).clone();
+        
      
         /**/
-        double p = 0.01;
+        double p = 5.01;
         double alpha = (-p) + (int)(Math.random() * (((1+p) - (-p)) + 1));
         double beta = (-p) + (int)(Math.random() * (((1+p) - (-p)) + 1));
         

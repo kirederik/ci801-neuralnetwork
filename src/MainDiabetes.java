@@ -15,7 +15,7 @@ public class MainDiabetes
         try
         {
             int popsize = 50;
-            int geracoes = 100;
+            int geracoes = 500;
             Torneio.TamTorneio = 4;
             GeneticAlgorithm.propMutacao = 0.1;
             GeneticAlgorithm.propCrossover = 1.0;
@@ -27,7 +27,9 @@ public class MainDiabetes
             MLPIndividual.dataset.faixaTeste[0] = 510;
             MLPIndividual.dataset.faixaTeste[1] = 768;
             
-            GeneticAlgorithm.Evolve(new MLPIndividual(8,10,2), popsize, geracoes);
+            //GeneticAlgorithm.Evolve(new MLPIndividual(8,10,2), popsize, geracoes, 10);
+            GeneticAlgorithm.Evolve(new LiuWangIndividual(8,10,2), popsize, geracoes, 10);
+            
             System.out.println("fim! " + GeneticAlgorithm.best.toString());
             MultiLayerPerceptron bestMLP = ((MLPIndividual)GeneticAlgorithm.best).createtMLP();
                         

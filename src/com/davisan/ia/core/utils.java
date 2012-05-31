@@ -39,4 +39,9 @@ public class utils
                 o[j] = tmp;
         }
     }
+    
+    public static double randomRange(double min, double max)
+    {
+        return min + (int)(Math.random() * ((max - min) + 1));
+    }
 }

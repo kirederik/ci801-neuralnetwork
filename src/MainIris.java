@@ -14,7 +14,7 @@ public class MainIris
         try
         {
             int popsize = 50;
-            int geracoes = 100;
+            int geracoes = 500;
             Torneio.TamTorneio = 4;
             GeneticAlgorithm.propMutacao = 0.1;
             GeneticAlgorithm.propCrossover = 0.9;
@@ -26,7 +26,9 @@ public class MainIris
             MLPIndividual.dataset.faixaTeste[0] = 110;
             MLPIndividual.dataset.faixaTeste[1] = 150;
             
-            GeneticAlgorithm.Evolve(new MLPIndividual(4,10,3), popsize, geracoes);
+            //GeneticAlgorithm.Evolve(new MLPIndividual(4,10,3), popsize, geracoes, 10);
+            GeneticAlgorithm.Evolve(new LiuWangIndividual(4,10,3), popsize, geracoes, 10);
+            
             System.out.println("fim! " + GeneticAlgorithm.best.toString());
             MultiLayerPerceptron bestMLP = ((MLPIndividual)GeneticAlgorithm.best).createtMLP();
                         

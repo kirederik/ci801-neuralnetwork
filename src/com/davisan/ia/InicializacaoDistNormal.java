@@ -11,7 +11,7 @@ public class InicializacaoDistNormal implements FuncPeso
     public double desvpad= 1;
     private static Random rand = new Random();
     
-    InicializacaoDistNormal(double media, double desvpad)
+    public InicializacaoDistNormal(double media, double desvpad)
     {
         this.media = media;
         this.desvpad = desvpad;
