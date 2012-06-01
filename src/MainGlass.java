@@ -4,7 +4,6 @@ import com.davisan.ia.GeneticAlgorithm;
 import com.davisan.ia.MLPIndividual;
 import com.davisan.ia.TestarSaidaMLP;
 import com.davisan.ia.Torneio;
-import com.davisan.ia.core.DataSet;
 import com.davisan.ia.core.MLP.MultiLayerPerceptron;
 
 
