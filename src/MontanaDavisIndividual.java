@@ -39,14 +39,26 @@ public class MontanaDavisIndividual extends MLPIndividual
     
     public void mutate()
     {
-        //MontanaDavisOperators.mutation(this.cromo);
+        //MontanaDavisOperators.mutationBiasedMutateWeights(this.cromo);
+        //MontanaDavisOperators.mutationUnbiasedMutateWeights(this.cromo);
+        //MontanaDavisOperators.mutationMutateNodes(this.cromo);
+        try
+        {
+            MontanaDavisOperators.mutationMutateWeakestNodes(this.cromo);
+        }
+        catch (Exception e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
     /**/
     public Individual[] crossOver(Individual other)
     {
         MontanaDavisIndividual p1 = this.clone();
         MontanaDavisIndividual p2 = ((MontanaDavisIndividual) other).clone();
-        return MontanaDavisOperators.crossOver(p1.cromo, p2.cromo);
+        //return MontanaDavisOperators.crossOver(p1.cromo, p2.cromo);
+        return MontanaDavisOperators.crossOverNodes(p1.cromo, p2.cromo);
     }
     /**/
 }

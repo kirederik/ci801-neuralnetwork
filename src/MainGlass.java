@@ -13,21 +13,22 @@ public class MainGlass
     {
         try
         {
-            int popsize = 100;
-            int geracoes = 50;
+            int popsize = 50;
+            int geracoes = 200;
             Torneio.TamTorneio = 8;
             GeneticAlgorithm.propMutacao = 0.9;
             GeneticAlgorithm.propCrossover = 0.9;
             MLPIndividual.dataset = new DataSetGlass("bases/glass.data", 9, 7);
             MLPIndividual.dataset.faixaTreinamento[0] = 0;
-            MLPIndividual.dataset.faixaTreinamento[1] = 214;
+            MLPIndividual.dataset.faixaTreinamento[1] = 114;
             MLPIndividual.dataset.faixaValidacao[0] = 114;
             MLPIndividual.dataset.faixaValidacao[1] = 164;
             MLPIndividual.dataset.faixaTeste[0] = 164;
             MLPIndividual.dataset.faixaTeste[1] = 214;
             
             //GeneticAlgorithm.Evolve(new MLPIndividual(9,10,7), popsize, geracoes, 10);
-            GeneticAlgorithm.Evolve(new LiuWangIndividual(9,10,7), popsize, geracoes, 10);
+            //GeneticAlgorithm.Evolve(new LiuWangIndividual(9,10,7), popsize, geracoes, 10);
+            GeneticAlgorithm.Evolve(new MontanaDavisIndividual(9,10,7), popsize, geracoes, 10);
             
             System.out.println("fim! " + GeneticAlgorithm.best.toString());
             MultiLayerPerceptron bestMLP = ((MLPIndividual)GeneticAlgorithm.best).createtMLP();
