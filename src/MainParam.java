@@ -68,6 +68,7 @@ public class MainParam
                 MLPIndividual.dataset.faixaValidacao[1] = 510;
                 MLPIndividual.dataset.faixaTeste[0] = 510;
                 MLPIndividual.dataset.faixaTeste[1] = 768;
+                break;
             case 2:
                 MLPIndividual.dataset = new DataSetGlass("bases/glass.data", 9, 7);
                 MLPIndividual.dataset.faixaTreinamento[0] = 0;
@@ -76,6 +77,7 @@ public class MainParam
                 MLPIndividual.dataset.faixaValidacao[1] = 164;
                 MLPIndividual.dataset.faixaTeste[0] = 164;
                 MLPIndividual.dataset.faixaTeste[1] = 214;
+                break;
             case 3:
                 MLPIndividual.dataset = new DataSetHeart("bases/heart.dat", 13, 2);
                 MLPIndividual.dataset.faixaTreinamento[0] = 0;
@@ -84,6 +86,7 @@ public class MainParam
                 MLPIndividual.dataset.faixaValidacao[1] = 200;
                 MLPIndividual.dataset.faixaTeste[0] = 200;
                 MLPIndividual.dataset.faixaTeste[1] = 270;
+                break;
             case 4:
                 MLPIndividual.dataset = new DataSetIris("bases/iris.data", 4, 3);
                 MLPIndividual.dataset.faixaTreinamento[0] = 0;
@@ -92,6 +95,7 @@ public class MainParam
                 MLPIndividual.dataset.faixaValidacao[1] = 110;
                 MLPIndividual.dataset.faixaTeste[0] = 110;
                 MLPIndividual.dataset.faixaTeste[1] = 150;
+                break;
             default:
                 System.out.println("Base Inválida");
                 return;
