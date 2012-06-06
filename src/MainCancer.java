@@ -31,8 +31,7 @@ public class MainCancer
             MLPIndividual.dataset.faixaTeste[1] = 699;
             
             
-            //GeneticAlgorithm.Evolve(new MLPIndividual(9,5,2), popsize, geracoes, 10);
-            GeneticAlgorithm.Evolve(new LiuWangIndividual(9,5,2), popsize, geracoes, 10);
+            GeneticAlgorithm.Evolve(new LMIndividual(9,5,2), popsize, geracoes, 10);
             
             System.out.println("fim! " + GeneticAlgorithm.best.toString());
             

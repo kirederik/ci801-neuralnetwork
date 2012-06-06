@@ -67,7 +67,8 @@ public class GeneticAlgorithm
                 }
             }
            
-            System.out.println("Iteracao: " + g + "\nFitness do Melhor Individuo: " + best.fitness() + "\n");
+            //System.out.println("Iteracao: " + g + "\nFitness do Melhor Individuo: " + best.fitness() + "\n");
+            System.out.print("" + best.fitness() + ";");
             
             ArrayList<Individual> Q = new ArrayList<Individual>();
             

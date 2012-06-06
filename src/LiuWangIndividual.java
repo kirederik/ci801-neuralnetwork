@@ -1,4 +1,6 @@
 
+import java.util.Random;
+
 import com.davisan.ia.InicializacaoDistNormal;
 import com.davisan.ia.MLPIndividual;
 import com.davisan.ia.core.Individual;
@@ -7,6 +9,8 @@ import com.davisan.ia.core.MLP.MultiLayerPerceptron;
 
 public class LiuWangIndividual extends MLPIndividual
 {
+    public static int mutationOperator = -1;
+    public static int crossoverOperator = -1;
        
     @Override
     public String toString()
@@ -41,8 +45,15 @@ public class LiuWangIndividual extends MLPIndividual
     /**/
     public void mutate()
     {
-        LiuWangLiuNiuOperators.mutationSinglePointRandom(this.cromo);
-        LiuWangLiuNiuOperators.mutationNonUniform(this.cromo);
+        int val = new Random().nextInt(4);
+        
+        if(mutationOperator != -1)
+            val = mutationOperator;
+        
+        if(val == 0)
+            LiuWangLiuNiuOperators.mutationSinglePointRandom(this.cromo);
+        else
+            LiuWangLiuNiuOperators.mutationNonUniform(this.cromo);
     }
     /**/
     public Individual[] crossOver(Individual other)

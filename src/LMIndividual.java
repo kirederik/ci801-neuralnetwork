@@ -7,37 +7,39 @@ import com.davisan.ia.core.MLP.MLPChromossome;
 import com.davisan.ia.core.MLP.MultiLayerPerceptron;
 
 
-public class MontanaDavisIndividual extends MLPIndividual
+public class LMIndividual extends MLPIndividual
 {
     public static int mutationOperator = -1;
     public static int crossoverOperator = -1;
     
+    public static InicializacaoDistNormal initDist = new InicializacaoDistNormal(0,5);
+    
     @Override
     public String toString()
     {
-        return "MontanaDavisIndividual [cromo=" + cromo + "]";
+        return "LMIndividual [cromo=" + cromo + "]";
     }
 
-    public MontanaDavisIndividual(int numEntrada, int numEscondida, int numSaida)
+    public LMIndividual(int numEntrada, int numEscondida, int numSaida)
     {
         super(numEntrada, numEscondida, numSaida);
     }
     
-    public MontanaDavisIndividual()
+    public LMIndividual()
     {
         super();
     }
 
     public Individual novo()
     {
-        MontanaDavisIndividual ind = new MontanaDavisIndividual();
-        ind.cromo = new MLPChromossome(new MultiLayerPerceptron(cromo.params[0], cromo.params[1], cromo.params[2], new InicializacaoDistNormal(0,5)));
+        LMIndividual ind = new LMIndividual();
+        ind.cromo = new MLPChromossome(new MultiLayerPerceptron(cromo.params[0], cromo.params[1], cromo.params[2], initDist));
         return ind;
     }
     
-    public MontanaDavisIndividual clone()
+    public LMIndividual clone()
     {
-        MontanaDavisIndividual ind = new MontanaDavisIndividual();
+        LMIndividual ind = new LMIndividual();
         ind.cromo = this.cromo.clone();
         return ind;
     }
@@ -46,7 +48,7 @@ public class MontanaDavisIndividual extends MLPIndividual
     {
         try
         {
-            int val = new Random().nextInt(4);
+            int val = new Random().nextInt(6);
             
             if(mutationOperator != -1)
                 val = mutationOperator;
@@ -65,6 +67,12 @@ public class MontanaDavisIndividual extends MLPIndividual
             case 3:
                 MontanaDavisOperators.mutationMutateWeakestNodes(this.cromo);
                 break;
+            case 4:
+                LiuWangLiuNiuOperators.mutationSinglePointRandom(this.cromo);
+                break;
+            case 5:
+                LiuWangLiuNiuOperators.mutationNonUniform(this.cromo);
+                break;
             }
         }
         catch (Exception e)
@@ -72,13 +80,13 @@ public class MontanaDavisIndividual extends MLPIndividual
             e.printStackTrace();
         }
     }
-
+    
     public Individual[] crossOver(Individual other)
     {
-        MLPIndividual p1 = this.clone();
-        MLPIndividual p2 = ((MLPIndividual) other).clone();
+        LMIndividual p1 = this.clone();
+        LMIndividual p2 = ((LMIndividual) other).clone();
         
-        int val = new Random().nextInt(3);
+        int val = new Random().nextInt(4);
         
         if(crossoverOperator!= -1)
             val = crossoverOperator;
@@ -91,8 +99,9 @@ public class MontanaDavisIndividual extends MLPIndividual
             return MontanaDavisOperators.crossOverNodes(p1.cromo, p2.cromo);
         case 2:
             return MontanaDavisOperators.crossOverFeatures(p1.cromo, p2.cromo);
+        case 3:
+            return LiuWangLiuNiuOperators.crossOver(p1.cromo, p2.cromo);
         }
         return MontanaDavisOperators.crossOverWeights(p1.cromo, p2.cromo);
     }
-    /**/
 }

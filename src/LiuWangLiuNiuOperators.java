@@ -15,7 +15,7 @@ public class LiuWangLiuNiuOperators
 
     public static Individual[] crossOver(MLPChromossome p1, MLPChromossome p2)
     {
-        LiuWangIndividual[] result = new LiuWangIndividual[2];
+        LMIndividual[] result = new LMIndividual[2];
         
         for(int i = 0; i < p1.genes.length; ++i)
         {
@@ -28,8 +28,8 @@ public class LiuWangLiuNiuOperators
                 p2.genes[i] = s;
             }
         }
-        result[0] = new LiuWangIndividual();
-        result[1] = new LiuWangIndividual();
+        result[0] = new LMIndividual();
+        result[1] = new LMIndividual();
         result[0].cromo = p1;
         result[1].cromo = p2;
         

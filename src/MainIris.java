@@ -26,8 +26,7 @@ public class MainIris
             MLPIndividual.dataset.faixaTeste[0] = 110;
             MLPIndividual.dataset.faixaTeste[1] = 150;
             
-            //GeneticAlgorithm.Evolve(new MLPIndividual(4,10,3), popsize, geracoes, 10);
-            GeneticAlgorithm.Evolve(new LiuWangIndividual(4,10,3), popsize, geracoes, 10);
+            GeneticAlgorithm.Evolve(new LMIndividual(4,10,3), popsize, geracoes, 10);
             
             System.out.println("fim! " + GeneticAlgorithm.best.toString());
             MultiLayerPerceptron bestMLP = ((MLPIndividual)GeneticAlgorithm.best).createtMLP();

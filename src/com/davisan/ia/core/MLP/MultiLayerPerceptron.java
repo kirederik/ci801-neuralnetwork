@@ -34,7 +34,7 @@ public class MultiLayerPerceptron
             for(int j=0; j < numEscondida; ++j)
             {
                 pesos[0][i][j] = (fp != null) ? fp.peso(0, i, j) : rand.nextDouble();
-                pesos[0][numEntrada][j] = 1;
+                //pesos[0][numEntrada][j] = 1;
             }
         }
         for(int i=0; i < numEscondida+1; ++i)
@@ -42,7 +42,7 @@ public class MultiLayerPerceptron
             for(int j=0; j < numSaida; ++j)
             {
                 pesos[1][i][j] = (fp != null) ? fp.peso(1, i, j) : rand.nextDouble();
-                pesos[1][numEscondida][j] = 1;
+                //pesos[1][numEscondida][j] = 1;
             }
         }
     }

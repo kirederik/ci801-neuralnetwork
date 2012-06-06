@@ -47,17 +47,18 @@ public class MLPChromossome
         double[][][] p = mlp.getPesos();
         
         int index = 0;
-        for(int i=0; i < params[0]+1; ++i)
+        
+        for(int j=0; j < params[1]; ++j) // for(int i=0; i < params[0]+1; ++i)
         {
-            for(int j=0; j < params[1]; ++j)
+            for(int i=0; i < params[0]+1; ++i) // for(int j=0; j < params[1]; ++j)
             {
                 genes[index++] = p[0][i][j];
             }
         }
 
-        for(int i=0; i < params[1]+1; ++i)
+        for(int j=0; j < params[2]; ++j) // for(int i=0; i < params[1]+1; ++i)
         {
-            for(int j=0; j < params[2]; ++j)
+            for(int i=0; i < params[1]+1; ++i) // for(int j=0; j < params[2]; ++j)
             {
                 genes[index++] = p[1][i][j];
             }

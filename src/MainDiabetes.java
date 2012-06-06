@@ -27,8 +27,7 @@ public class MainDiabetes
             MLPIndividual.dataset.faixaTeste[0] = 510;
             MLPIndividual.dataset.faixaTeste[1] = 768;
             
-            //GeneticAlgorithm.Evolve(new MLPIndividual(8,10,2), popsize, geracoes, 10);
-            GeneticAlgorithm.Evolve(new LiuWangIndividual(8,10,2), popsize, geracoes, 10);
+            GeneticAlgorithm.Evolve(new LMIndividual(8,10,2), popsize, geracoes, 10);
             
             System.out.println("fim! " + GeneticAlgorithm.best.toString());
             MultiLayerPerceptron bestMLP = ((MLPIndividual)GeneticAlgorithm.best).createtMLP();

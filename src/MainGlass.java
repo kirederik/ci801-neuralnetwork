@@ -26,9 +26,7 @@ public class MainGlass
             MLPIndividual.dataset.faixaTeste[0] = 164;
             MLPIndividual.dataset.faixaTeste[1] = 214;
             
-            //GeneticAlgorithm.Evolve(new MLPIndividual(9,10,7), popsize, geracoes, 10);
-            //GeneticAlgorithm.Evolve(new LiuWangIndividual(9,10,7), popsize, geracoes, 10);
-            GeneticAlgorithm.Evolve(new MontanaDavisIndividual(9,10,7), popsize, geracoes, 10);
+            GeneticAlgorithm.Evolve(new LMIndividual(9,10,7), popsize, geracoes, 10);
             
             System.out.println("fim! " + GeneticAlgorithm.best.toString());
             MultiLayerPerceptron bestMLP = ((MLPIndividual)GeneticAlgorithm.best).createtMLP();

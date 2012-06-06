@@ -1,11 +1,10 @@
+import java.util.Arrays;
 import java.util.Random;
 
 import com.davisan.ia.DataSetCancer;
-import com.davisan.ia.DataSetGlass;
 import com.davisan.ia.GeneticAlgorithm;
 import com.davisan.ia.InicializacaoDistNormal;
 import com.davisan.ia.MLPIndividual;
-import com.davisan.ia.core.DataSet;
 import com.davisan.ia.core.FitnessMLP;
 import com.davisan.ia.core.Individual;
 import com.davisan.ia.core.MLP.MLPChromossome;
@@ -15,6 +14,7 @@ import com.davisan.ia.core.MLP.MultiLayerPerceptron;
 public class MontanaDavisOperators
 {
     public static double desvp = 5.0;
+    //public static long seed = 134;
     //public static DataSet dataset = null;
 
     
@@ -26,23 +26,150 @@ public class MontanaDavisOperators
      *   Loop over all  nodes C connected (by either an ingoing or outgoing  l i n k)  to A (and thus also to B). 
      *   Exchange the weight on the  link  between C and A wi th that on the link between C and B.  
      *   Ignoring the internal structure, the new network is  identical to the  old network, i.e. given the same inputs they  will  
-     *   produce the same outputs.   
+     *   produce the same outputs.
+     *   
+     *      For each node in the first parents' network, it tries to find a node in the second parent's network which is playing the same role 
+     *      by showing a number of inputs to both networks and comparing the responses of different nodes. It then rearranges the second parent's 
+     *      network so that nodes playing the same role are in the same position. At this point, it forms a  child  in the same way as CROSSOVER-NODES.
      */
+    
+    private static double saidaNeuronio(MLPChromossome p, int neuronio, long seed)
+    {
+        double saida = 0;
+        int x = neuronio;
+        int base;
+        if(x < p.params[1])
+        {
+            double[] entrada = new double[p.params[0]+1];
+            for(int i=0; i <= p.params[0]; ++i)
+                entrada[i] = 10*(new Random(seed).nextGaussian());
+            
+            base = x*(p.params[0]+1);
+            for(int i=base; i <= base+p.params[0]; ++i)
+            {
+                saida +=  entrada[i-base] * p.genes[i];
+            }
+        }
+        else
+        {
+            double[] entrada = new double[p.params[1]+1];
+            for(int i=0; i <= p.params[1]; ++i)
+                entrada[i] = 10*(new Random(seed).nextGaussian());
+            
+            int y = x - p.params[1];
+            base = (y*(p.params[1]+1) + (p.params[0]+1)*p.params[1]);
+            for(int i=base; i <= base+p.params[1]; ++i)
+            {
+                saida +=  entrada[i-base] * p.genes[i];
+            }
+        }
+        
+        return saida;
+    }
+    
     public static Individual[] crossOverFeatures(MLPChromossome p1, MLPChromossome p2)
     {
-        MontanaDavisIndividual[] result = new MontanaDavisIndividual[2];
+        LMIndividual[] result = new LMIndividual[2];
         MLPChromossome c1 = p1.clone();
         MLPChromossome c2 = p2.clone();
         
-        int totalnodes = p1.params[1];
+        long seed = new Random().nextLong();
+        
+        int totalnodes = p1.params[1]+p1.params[2];
         for(int x = 0; x < totalnodes; ++x)
         {
+            double saidax = saidaNeuronio(p1, x, seed);
+            double minerr = Double.MAX_VALUE;
+            int neurop2 = x;
             
+            if(x < p1.params[1])
+            {
+                for(int j=0; j < p2.params[1]; ++j)
+                {
+                    double saidaj = saidaNeuronio(p2, j, 1);
+                    if( Math.abs(saidax-saidaj)  < minerr)
+                    {
+                        neurop2 = j;
+                        minerr = Math.abs(saidax-saidaj);
+                    }
+                }
+            }
+            else
+            {
+                for(int j = p1.params[1]; j < totalnodes; ++j)
+                {
+                    double saidaj = saidaNeuronio(p2, j, seed);
+                    if( Math.abs(saidax-saidaj)  < minerr)
+                    {
+                        neurop2 = j;
+                        minerr = Math.abs(saidax-saidaj);
+                    }
+                }
+            }
+            
+            // cópia os pessos de na posição neurp2 de p2 para para a posição x de c1
+            int base;
+            int j=0;
+            MLPChromossome pai = p2;
+            if(x < p1.params[1])
+            {
+                base = x*(p1.params[0]+1);
+                
+                for(int i=base; i <= base+p1.params[0]; ++i)
+                {
+                    c1.genes[i] = pai.genes[neurop2 + j++];
+                }
+            }
         }
         
         
-        result[0] = new MontanaDavisIndividual();
-        result[1] = new MontanaDavisIndividual();
+        for(int x = 0; x < totalnodes; ++x)
+        {
+            double saidax = saidaNeuronio(p2, x, 1);
+            double minerr = Double.MAX_VALUE;
+            int neurop1 = x;
+            
+            if(x < p2.params[1])
+            {
+                for(int j=0; j < p1.params[1]; ++j)
+                {
+                    double saidaj = saidaNeuronio(p1, j, 1);
+                    if( Math.abs(saidax-saidaj)  < minerr)
+                    {
+                        neurop1 = j; 
+                    }
+                }
+            }
+            else
+            {
+                for(int j = p2.params[1]; j < totalnodes; ++j)
+                {
+                    double saidaj = saidaNeuronio(p1, j, 1);
+                    if( Math.abs(saidax-saidaj)  < minerr)
+                    {
+                        neurop1 = j; 
+                    }
+                }
+            }
+            
+            // cópia os pessos de na posição neurp1 de p1 para para a posição x de c2
+            int base;
+            int j=0;
+            MLPChromossome pai = p1;
+            if(x < p2.params[1])
+            {
+                base = x*(p2.params[0]+1);
+                
+                for(int i=base; i <= base+p2.params[0]; ++i)
+                {
+                    c2.genes[i] = pai.genes[neurop1 + j++];
+                }
+            }
+        }
+        
+        
+        result[0] = new LMIndividual();
+        result[1] = new LMIndividual();
         result[0].cromo = c1;
         result[1].cromo = c2;
         
@@ -51,7 +178,7 @@ public class MontanaDavisOperators
     
     public static Individual[] crossOverNodes(MLPChromossome p1, MLPChromossome p2)
     {
-        MontanaDavisIndividual[] result = new MontanaDavisIndividual[2];
+        LMIndividual[] result = new LMIndividual[2];
         MLPChromossome c1 = p1.clone();
         MLPChromossome c2 = p2.clone();
         
@@ -114,8 +241,8 @@ public class MontanaDavisOperators
         }
         
         
-        result[0] = new MontanaDavisIndividual();
-        result[1] = new MontanaDavisIndividual();
+        result[0] = new LMIndividual();
+        result[1] = new LMIndividual();
         result[0].cromo = c1;
         result[1].cromo = c2;
         
@@ -124,7 +251,7 @@ public class MontanaDavisOperators
     
     public static Individual[] crossOverWeights(MLPChromossome p1, MLPChromossome p2)
     {
-        MontanaDavisIndividual[] result = new MontanaDavisIndividual[2];
+        LMIndividual[] result = new LMIndividual[2];
         MLPChromossome c1 = p1.clone();
         MLPChromossome c2 = p2.clone();
         
@@ -139,8 +266,8 @@ public class MontanaDavisOperators
             c2.genes[i] = (rand.nextInt(2) == 0)? p1.genes[i] : p2.genes[i];
         }
        
-        result[0] = new MontanaDavisIndividual();
-        result[1] = new MontanaDavisIndividual();
+        result[0] = new LMIndividual();
+        result[1] = new LMIndividual();
         result[0].cromo = c1;
         result[1].cromo = c2;
         
@@ -282,7 +409,8 @@ public class MontanaDavisOperators
     {
         try
         {
-            MLPChromossome ind = new MLPChromossome(new MultiLayerPerceptron(9, 10, 2, new InicializacaoDistNormal(0, 5)));
+            MLPChromossome ind = new MLPChromossome(new MultiLayerPerceptron(1, 1, 1, new InicializacaoDistNormal(0, 5)));
+            MLPChromossome ind2 = new MLPChromossome(new MultiLayerPerceptron(1, 1, 1, new InicializacaoDistNormal(0, 5)));
             
             MLPIndividual.dataset = new DataSetCancer("bases/cancer.data", 9, 2);
             MLPIndividual.dataset.faixaTreinamento[0] = 0;
@@ -302,7 +430,12 @@ public class MontanaDavisOperators
             dataset.faixaTeste[1] = 214;
             */
            
-            mutationMutateWeakestNodes(ind);
+            //mutationMutateWeakestNodes(ind);
+            System.out.println(ind);
+            System.out.println(ind2);
+            LMIndividual[] ar = (LMIndividual[])crossOverFeatures(ind, ind2);
+            System.out.println(ar[0].cromo);
+            System.out.println(ar[1].cromo);
         }
         catch (Exception e)
         {
