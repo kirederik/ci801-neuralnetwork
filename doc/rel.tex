@@ -71,10 +71,29 @@ Contextualização do trabalho:
 
 \section{Algoritmos Genéticos}
 
-\begin{itemize}
-\item Histórico
-\item Breve explicação de conceitos relevantes ao trabalho
-\end{itemize}
+\par O Algoritmo Genético (AG), geralmente referenciado como \emph{algoritmos genéticos}, foi desenvolvido por John Holland na Universidade de Michigan, em 1975, em um dos livros mais famosos da área, \emph{Adaptation in Natural and Artificial Systems}, publicado pela editora \emph{University of Michigan Press} \cite{essentials:pop}.
+\par Os AGs são algoritmos de busca heurística que tentam reproduzir artificialmente o processo de evolução, da Teoria de Evolução das Espécies, de Darwin. São muito similares a outros algoritmos de busca local, como o Subida de Encosta (\textit{Hill-climbing}), diferindo apenas na quantidade de soluções mantidas a cada iteração e no processo de geração de novas soluções.
+\par De acordo com \cite{Montana}, os AGs necessitam de cinco componentes:
+\begin{enumerate}
+\item[C1] - Uma maneira de codificar uma solução em um indivíduo.
+\item[C2] - Uma função de avaliação que retorna um índice de qualidade para cada individuo da população.
+\item[C3] - Um procedimento de inicialização da população.
+\item[C4] - Operadores que podem ser aplicados nos indivíduos pais no processo de reprodução, alterado a composição genética dos novos indivíduos gerados. Neste componente incluem-se os operadores de mutação, de cruzamento e outros específicos do domínio.
+\item[C5] - Uma configuração de parâmetros do algoritmo, os operadores, etc.
+\end{enumerate}
+Com estes cinco componentes, ainda de acordo com \cite{montana}, o AG funciona seguindo os seguintes passos:
+\begin{enumerate}
+	\item A população é iniciada usando-se o procedimento C3. O resultado é um conjunto de indivíduos, de acordo com C1.
+	\item Cada indivíduo é avaliado, usando a função definida em C2.
+	\item A população se reproduz até que um critério de parada seja atingido. A reprodução é realizada seguindo-se os seguintes passos:
+	 \begin{enumerate}
+		\item Um ou mais indivíduis são escolhidos para a reprodução. A seleção é estocástica, mas os pais melhores avaliados são favorecidos na escolha. Os parametros em C5 podem influenciar neste processo de seleção.
+		\item Os operadores de C4 são aplicados aos pais para geração dos filhos. Os parametros em C5 ajudam a determinar quais operadores serão usados.
+		\item Os filhos são então avaliados e inseridos de volta na população. Em algumas versões de AG, toda a população é substituida. Em outras, apenas um subconjunto é substituido.		
+	\end{enumerate}
+\end{enumerate}
+
+\par A cada iteração, os indivíduos melhor avaliados tem mais chances de serem escolhidos para reprodução, fazendo com que, em teoria, sejam gerados melhores indivíduos a cada geração. Ao término do algoritmo, senão a ótima, a tendência é ter-se uma solução muito próxima a ela.
 
 \section{Implementação}\label{sec:imple}
 

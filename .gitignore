@@ -4,3 +4,5 @@
 *.dvi
 *.log
 
+*.bbl
+*.blg
