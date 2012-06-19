@@ -1,0 +1,145 @@
+Parâmetros;Média da validação;Média dos testes
+50/2/random/random;0.61976744186;0.633720930233
+50/2/random/crossOverWeights;0.622480620155;0.634496124031
+50/2/random/crossOverNodes;0.605813953488;0.603488372093
+50/2/random/crossOverFeatures;0.595348837209;0.611627906977
+50/2/random/Line Recombination;0.618217054264;0.637596899225
+50/2/BiasedMutateWeights/random;0.612015503876;0.605426356589
+50/2/BiasedMutateWeights/crossOverWeights;0.630620155039;0.622480620155
+50/2/BiasedMutateWeights/crossOverNodes;0.635658914729;0.612403100775
+50/2/BiasedMutateWeights/crossOverFeatures;0.564728682171;0.572093023256
+50/2/BiasedMutateWeights/Line Recombination;0.641472868217;0.630620155039
+50/2/UnbiasedMutateWeights/random;0.603100775194;0.642635658915
+50/2/UnbiasedMutateWeights/crossOverWeights;0.626356589147;0.628682170543
+50/2/UnbiasedMutateWeights/crossOverNodes;0.602713178295;0.615891472868
+50/2/UnbiasedMutateWeights/crossOverFeatures;0.622093023256;0.625968992248
+50/2/UnbiasedMutateWeights/Line Recombination;0.625581395349;0.631007751938
+50/2/MutateNodes/random;0.618217054264;0.637984496124
+50/2/MutateNodes/crossOverWeights;0.622480620155;0.625581395349
+50/2/MutateNodes/crossOverNodes;0.627906976744;0.614341085271
+50/2/MutateNodes/crossOverFeatures;0.602713178295;0.590310077519
+50/2/MutateNodes/Line Recombination;0.631007751938;0.637984496124
+50/2/MutateWeakestNodes/random;0.578294573643;0.583720930233
+50/2/MutateWeakestNodes/crossOverWeights;0.606589147287;0.591472868217
+50/2/MutateWeakestNodes/crossOverNodes;0.604263565891;0.59496124031
+50/2/MutateWeakestNodes/crossOverFeatures;0.567054263566;0.576744186047
+50/2/MutateWeakestNodes/Line Recombination;0.582170542636;0.581782945736
+50/2/SinglePointRandom/random;0.615503875969;0.589534883721
+50/2/SinglePointRandom/crossOverWeights;0.62480620155;0.606976744186
+50/2/SinglePointRandom/crossOverNodes;0.648837209302;0.620930232558
+50/2/SinglePointRandom/crossOverFeatures;0.626356589147;0.614728682171
+50/2/SinglePointRandom/Line Recombination;0.654263565891;0.651162790698
+50/2/NonUniform/random;0.653100775194;0.649224806202
+50/2/NonUniform/crossOverWeights;0.613178294574;0.604651162791
+50/2/NonUniform/crossOverNodes;0.61511627907;0.61511627907
+50/2/NonUniform/crossOverFeatures;0.630620155039;0.621317829457
+50/2/NonUniform/Line Recombination;0.649224806202;0.650387596899
+50/4/random/random;0.63023255814;0.618604651163
+50/4/random/crossOverWeights;0.620542635659;0.621317829457
+50/4/random/crossOverNodes;0.621705426357;0.618217054264
+50/4/random/crossOverFeatures;0.60503875969;0.613565891473
+50/4/random/Line Recombination;0.644186046512;0.651550387597
+50/4/BiasedMutateWeights/random;0.609689922481;0.612403100775
+50/4/BiasedMutateWeights/crossOverWeights;0.588759689922;0.586434108527
+50/4/BiasedMutateWeights/crossOverNodes;0.601937984496;0.611627906977
+50/4/BiasedMutateWeights/crossOverFeatures;0.618604651163;0.616279069767
+50/4/BiasedMutateWeights/Line Recombination;0.641085271318;0.651937984496
+50/4/UnbiasedMutateWeights/random;0.63992248062;0.634108527132
+50/4/UnbiasedMutateWeights/crossOverWeights;0.604263565891;0.608139534884
+50/4/UnbiasedMutateWeights/crossOverNodes;0.596124031008;0.60503875969
+50/4/UnbiasedMutateWeights/crossOverFeatures;0.606976744186;0.606976744186
+50/4/UnbiasedMutateWeights/Line Recombination;0.640697674419;0.639534883721
+50/4/MutateNodes/random;0.623643410853;0.625968992248
+50/4/MutateNodes/crossOverWeights;0.582170542636;0.597286821705
+50/4/MutateNodes/crossOverNodes;0.627519379845;0.620542635659
+50/4/MutateNodes/crossOverFeatures;0.632170542636;0.63488372093
+50/4/MutateNodes/Line Recombination;0.636821705426;0.639534883721
+50/4/MutateWeakestNodes/random;0.576356589147;0.589534883721
+50/4/MutateWeakestNodes/crossOverWeights;0.567829457364;0.567441860465
+50/4/MutateWeakestNodes/crossOverNodes;0.591085271318;0.58488372093
+50/4/MutateWeakestNodes/crossOverFeatures;0.581395348837;0.577131782946
+50/4/MutateWeakestNodes/Line Recombination;0.594186046512;0.577519379845
+50/4/SinglePointRandom/random;0.627131782946;0.641860465116
+50/4/SinglePointRandom/crossOverWeights;0.643798449612;0.615503875969
+50/4/SinglePointRandom/crossOverNodes;0.616279069767;0.622480620155
+50/4/SinglePointRandom/crossOverFeatures;0.632945736434;0.648062015504
+50/4/SinglePointRandom/Line Recombination;0.638759689922;0.642248062016
+50/4/NonUniform/random;0.599224806202;0.616666666667
+50/4/NonUniform/crossOverWeights;0.579069767442;0.583333333333
+50/4/NonUniform/crossOverNodes;0.587209302326;0.596899224806
+50/4/NonUniform/crossOverFeatures;0.572480620155;0.603875968992
+50/4/NonUniform/Line Recombination;0.631782945736;0.649612403101
+100/2/random/random;0.635271317829;0.639534883721
+100/2/random/crossOverWeights;0.63023255814;0.636434108527
+100/2/random/crossOverNodes;0.62519379845;0.618217054264
+100/2/random/crossOverFeatures;0.63992248062;0.626356589147
+100/2/random/Line Recombination;0.651550387597;0.645348837209
+100/2/BiasedMutateWeights/random;0.656589147287;0.612790697674
+100/2/BiasedMutateWeights/crossOverWeights;0.61976744186;0.63992248062
+100/2/BiasedMutateWeights/crossOverNodes;0.594186046512;0.587209302326
+100/2/BiasedMutateWeights/crossOverFeatures;0.608527131783;0.625968992248
+100/2/BiasedMutateWeights/Line Recombination;0.641085271318;0.646511627907
+100/2/UnbiasedMutateWeights/random;0.646124031008;0.634108527132
+100/2/UnbiasedMutateWeights/crossOverWeights;0.624418604651;0.621705426357
+100/2/UnbiasedMutateWeights/crossOverNodes;0.650387596899;0.628682170543
+100/2/UnbiasedMutateWeights/crossOverFeatures;0.632558139535;0.603875968992
+100/2/UnbiasedMutateWeights/Line Recombination;0.663953488372;0.692635658915
+100/2/MutateNodes/random;0.651162790698;0.647674418605
+100/2/MutateNodes/crossOverWeights;0.591085271318;0.615891472868
+100/2/MutateNodes/crossOverNodes;0.608914728682;0.614728682171
+100/2/MutateNodes/crossOverFeatures;0.62519379845;0.630620155039
+100/2/MutateNodes/Line Recombination;0.639147286822;0.656976744186
+100/2/MutateWeakestNodes/random;0.595736434109;0.595348837209
+100/2/MutateWeakestNodes/crossOverWeights;0.611627906977;0.598062015504
+100/2/MutateWeakestNodes/crossOverNodes;0.574418604651;0.558914728682
+100/2/MutateWeakestNodes/crossOverFeatures;0.573255813953;0.586821705426
+100/2/MutateWeakestNodes/Line Recombination;0.626744186047;0.642248062016
+100/2/SinglePointRandom/random;0.624418604651;0.637596899225
+100/2/SinglePointRandom/crossOverWeights;0.618217054264;0.628682170543
+100/2/SinglePointRandom/crossOverNodes;0.622868217054;0.618604651163
+100/2/SinglePointRandom/crossOverFeatures;0.622093023256;0.63992248062
+100/2/SinglePointRandom/Line Recombination;0.667441860465;0.677906976744
+100/2/NonUniform/random;0.646124031008;0.642248062016
+100/2/NonUniform/crossOverWeights;0.627906976744;0.629457364341
+100/2/NonUniform/crossOverNodes;0.622868217054;0.628294573643
+100/2/NonUniform/crossOverFeatures;0.599224806202;0.591860465116
+100/2/NonUniform/Line Recombination;0.673255813953;0.681007751938
+100/4/random/random;0.626744186047;0.625968992248
+100/4/random/crossOverWeights;0.628682170543;0.629457364341
+100/4/random/crossOverNodes;0.61007751938;0.625968992248
+100/4/random/crossOverFeatures;0.628294573643;0.622868217054
+100/4/random/Line Recombination;0.637596899225;0.65503875969
+100/4/BiasedMutateWeights/random;0.641860465116;0.631007751938
+100/4/BiasedMutateWeights/crossOverWeights;0.613953488372;0.604651162791
+100/4/BiasedMutateWeights/crossOverNodes;0.589534883721;0.610465116279
+100/4/BiasedMutateWeights/crossOverFeatures;0.592248062016;0.596124031008
+100/4/BiasedMutateWeights/Line Recombination;0.653875968992;0.655813953488
+100/4/UnbiasedMutateWeights/random;0.622868217054;0.613565891473
+100/4/UnbiasedMutateWeights/crossOverWeights;0.649612403101;0.624031007752
+100/4/UnbiasedMutateWeights/crossOverNodes;0.617441860465;0.61511627907
+100/4/UnbiasedMutateWeights/crossOverFeatures;0.618604651163;0.623643410853
+100/4/UnbiasedMutateWeights/Line Recombination;0.622868217054;0.653100775194
+100/4/MutateNodes/random;0.618604651163;0.618217054264
+100/4/MutateNodes/crossOverWeights;0.626744186047;0.609689922481
+100/4/MutateNodes/crossOverNodes;0.584108527132;0.611627906977
+100/4/MutateNodes/crossOverFeatures;0.600387596899;0.611627906977
+100/4/MutateNodes/Line Recombination;0.66511627907;0.660465116279
+100/4/MutateWeakestNodes/random;0.586821705426;0.575581395349
+100/4/MutateWeakestNodes/crossOverWeights;0.556589147287;0.582170542636
+100/4/MutateWeakestNodes/crossOverNodes;0.58992248062;0.591472868217
+100/4/MutateWeakestNodes/crossOverFeatures;0.584496124031;0.565891472868
+100/4/MutateWeakestNodes/Line Recombination;0.598837209302;0.601550387597
+100/4/SinglePointRandom/random;0.641860465116;0.643023255814
+100/4/SinglePointRandom/crossOverWeights;0.623255813953;0.632170542636
+100/4/SinglePointRandom/crossOverNodes;0.642248062016;0.651162790698
+100/4/SinglePointRandom/crossOverFeatures;0.612790697674;0.605813953488
+100/4/SinglePointRandom/Line Recombination;0.695348837209;0.690310077519
+100/4/NonUniform/random;0.636821705426;0.62984496124
+100/4/NonUniform/crossOverWeights;0.663178294574;0.645348837209
+100/4/NonUniform/crossOverNodes;0.642248062016;0.653100775194
+100/4/NonUniform/crossOverFeatures;0.630620155039;0.648062015504
+100/4/NonUniform/Line Recombination;0.645736434109;0.638759689922
+;;;
+;Melhor Combinação;Média da validação;Média dos testes;
+Melhor média da Validacao:;100/4/SinglePointRandom/Line Recombination;0.695348837209;0.690310077519
+Melhor média dos Testes:;100/2/UnbiasedMutateWeights/Line Recombination;0.663953488372;0.692635658915
