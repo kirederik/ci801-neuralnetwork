@@ -12,12 +12,12 @@
 
 \title{Evoluindo os pesos de uma Rede Neural \\com Algoritmos Genéticos}
 
-\author{Aurora Trinidad R. Pozo\inst{1}, Davi Azevedo Q. Santos\inst{1}, Derik Evangelista R. Silva\inst{1}}
+\author{Davi Azevedo Q. Santos\inst{1}, Derik Evangelista R. Silva\inst{1}, Aurora Trinidad R. Pozo\inst{1}}
   
 
 \address{Departamento de Informática -- Universidade Federal do Paraná (UFPR)\\
   Caixa Postal 19081  -- 81531-980 -- Curitiba -- PR -- Brasil
-  \email{\{aurora, daqsantos, dersilva\}@inf.ufpr.br}
+  \email{\{daqsantos, dersilva, aurora\}@inf.ufpr.br}
 }
 
 \begin{document} 
@@ -25,77 +25,57 @@
 \maketitle
 
 \begin{abstract}
-  This meta-paper describes the style to be used in articles and short papers
-  for SBC conferences. For papers in English, you should add just an abstract
-  while for the papers in Portuguese, we also ask for an abstract in
-  Portuguese (``resumo''). In both cases, abstracts should not have more than
-  10 lines and must be in the first page of the paper.
+This paper compares the training of a Multi Layer Perceptron using two approaches: a pure Genetic Algoritthm and a hybrid one using backpropagation. Various combinations of genetic operators are applied to the problem of classification.The results should show that the best combination can meet or exceed the results obtained with the classic Backpropagation algorithm.
 \end{abstract}
      
 \begin{resumo} 
-  Este meta-artigo descreve o estilo a ser usado na confeco de artigos e
-  resumos de artigos para publicao nos anais das conferncias organizadas
-  pela SBC.  solicitada a escrita de resumo e abstract apenas para os artigos
-  escritos em portugus. Artigos em ingls devero apresentar apenas abstract.
-  Nos dois casos, o autor deve tomar cuidado para que o resumo (e o abstract)
-  no ultrapassem 10 linhas cada, sendo que ambos devem estar na primeira
-  pgina do artigo.
+Este artigo compara o treinamento de um Multi Layer Perceptron usando duas abordagens: um Algoritmo 
+genético puro e um híbrido usando backpropagation. Várias combinações de operadores genéticos são 
+aplicadas para o problema de classificação. Os resultados devem mostrar que a melhor combinação consegue atingir ou ultrapassar os resultados obtidos com o algoritmo clássico de Backpropagation.
 \end{resumo}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 \section{Introdução}
 
-Contextualização do trabalho: 
-\begin{itemize}
-\item Contexto histórico de IA/Aprendizado de máquina
-\item Motivação
-\item Objetivos
-\item Linha do trabalho
-\end{itemize}
+\par As Redes Neurais Aritificiais é uma das formas mais populares e efetivas para construção de sistemas de aprendizagem \cite{russel}, e são amplamente utilizados em diversas áreas, como xxx, xxx, xxx. Representam uma flexível técnica heurística para reconhecimento de padrões \cite{duda}, além de possuirem a habilidade de realizar computação distribuída, tolerar entradas ruidosas e, é claro, aprender \cite{russel}.
+
+\par \cite{Liu} realiza o treinamento de uma Rede Neural Artifical usando Algoritmos Genéticos (AG) para o problema de classificação de imagens. Além disso, o Backpropagation é utilizado como uma forma de busca local para refinar a solução encontrada pelo AG. \cite{montana}, por outro lado, utiliza um GA hibrido, onde é introduzido um operador de gradiente.
+
+O objetivo deste trabalho é treinar uma Rede Neural Artificial utilizando os mesmos operadores e comparar o resultado de um AG puro com um AG híbrido com backpropagation.
+
+\par Este artigo está organizado da seguinte forma: no capítulo II são apresentados os conceitos de Redes Neurais Artificiais e Algoritmos Genéticos. No capítulo III são apresentados os detalhes de implementação, operadores genéticos e as bases de dados utilizados. O capítulo IV expõe os resultados; e o capítulo V, as conclusões.
 
 \section{Metodologia} \label{sec:metodologia}
 
 \subsection{Redes Neurais}
 %\section{Redes Neurais}
 
-\par Segundo \cite{kasabov} uma rede neural artifical é um modelo computacional biologicamente inspirado o qual consiste de elementos de processamento (neurônios) e conexões entre eles (pesos) que representam a memória do sistema. O primeiro modelo de neurônio artificial foi proposto por McCulloch e Pitts em 1943. 
+\par Segundo \cite{kasabov} uma Rede Neural Artifical é um modelo computacional biologicamente inspirado no cérebro humano que consiste de elementos de processamento (neurônios) e conexões entre eles (pesos) que representam a memória do sistema. O primeiro modelo de neurônio artificial foi proposto por McCulloch e Pitts em 1943. 
 \par Uma rede neural é definida por quatro parâmetros:
 
 \begin{enumerate}
-	\item Tipo de neurônio: determina as entradas e saídas de um neuronio;
-	\item Arquitetura conexionista: determina a arquitetura da rede.
-	\item Algoritmo de aprendizado: determina como o conhecimento é armazenado na rede.
+	\item Tipo de neurônio: determina como são calculados os valores de entradas e de saída de um neurônio;
+	\item Arquitetura conexionista: determina como os neurônios se conectam entre si;
+	\item Algoritmo de aprendizado: determina como o conhecimento é armazenado na rede;
 	\item Algoritmo de Recall: determina como o conhecimento da rede é recuperado.
 \end{enumerate}
 
-\par Os vários modelos de redes neurais artificais podem ser descritos em termos destes parâmetros. O modelo mais comum é o Multi Layer Perceptron (MLP), que consiste de uma arquitetura totalmente conectada entre as camadas, possui no mínimo três camadas (entrada, escondida e saída), cada neurônio tem um entrada fixa (bias), e a função de ativação mais comum é a sigmóide. O MLP tornou-se bastante utilizado com surgimento do algoritmo Backprogation como algoritmo de aprendizado. Contudo neste trabalho, será utilizado um algoritmo genético para realizar o treinamento da rede neural.
+\par Os vários modelos de redes neurais artificais podem ser descritos em termos destes parâmetros. O modelo mais comum é o Multi Layer Perceptron (MLP), que consiste de uma arquitetura totalmente conectada entre as camadas, possui no mínimo três camadas (entrada, oculta e saída). Além disso, cada neurônio tem um entrada fixa (bias), e a função de ativação mais usada é a sigmóide.
 
 \par Neste trabalho utilizaremos o MLP para o problema de classificação. Segundo \cite{kasabov} O problema de classificacão é associar um objeto a um grupo ou classe de objetos já existentes. 
+
+\par O MLP tornou-se bastante utilizado com surgimento do algoritmo Backprogation como algoritmo de aprendizado. Contudo, neste trabalho, para realizar o treinamento da rede neural, será implementado duas abordagens: uma utilizado um Algoritmo Genético puro e a outra um Algoritmo Genético híbrido, o qual introduz a execução do backpropagation logo após a aplicação dos operadores de mutação. Todavia, por conta do custo, apenas um pequeno número de iterações do backprogation será utilizado.
 
 \subsection{Algoritmos Genéticos}
 %\section{Algoritmos Genéticos}
 
 \par O Algoritmo Genético (AG), geralmente referenciado como \emph{algoritmos genéticos}, foi desenvolvido por John Holland na Universidade de Michigan, em 1975, em um dos livros mais famosos da área, \emph{Adaptation in Natural and Artificial Systems}, publicado pela editora \emph{University of Michigan Press} \cite{essentials:pop}.
-\par Os AGs são algoritmos de busca heurística que tentam reproduzir artificialmente o processo de evolução, da Teoria de Evolução das Espécies, de Darwin. São muito similares a outros algoritmos de busca local, como o Subida de Encosta (\textit{Hill-climbing}), diferindo apenas na quantidade de soluções mantidas a cada iteração e no processo de geração de novas soluções.
+\par Os AGs são algoritmos de busca heurística que imitam artificialmente o processo de evolução, da Teoria de Evolução das Espécies, de Darwin. São muito similares a outros algoritmos de busca local, como o Subida de Encosta (\textit{Hill-climbing}), diferindo apenas na quantidade de soluções mantidas a cada iteração e no processo de geração de novas soluções.
 \par De acordo com \cite{montana}, os AGs necessitam de cinco componentes:
 \begin{enumerate}
 \item[C1] - Uma maneira de codificar uma solução em um indivíduo.
 \item[C2] - Uma função de avaliação que retorna um índice de qualidade para cada individuo da população.
 \item[C3] - Um procedimento de inicialização da população.
-\item[C4] - Operadores que podem ser aplicados nos indivíduos pais no processo de reprodução, alterado a composição genética dos novos indivíduos gerados. Neste componente incluem-se os operadores de mutação, de cruzamento e outros específicos do domínio.
+\item[C4] - Operadores que podem ser aplicados nos indivíduos pais no processo de reprodução, alterado a composição genética dos novos indivíduos gerados. Neste componente incluem-se os operadores de mutação, de cruzamento, seleção e outros específicos do domínio.
 \item[C5] - Uma configuração de parâmetros do algoritmo, os operadores, etc.
 \end{enumerate}
 Com estes cinco componentes, ainda de acordo com \cite{montana}, o AG funciona seguindo os seguintes passos:
@@ -113,9 +93,11 @@ Com estes cinco componentes, ainda de acordo com \cite{montana}, o AG funciona s
 \par A cada iteração, os indivíduos melhor avaliados tem mais chances de serem escolhidos para reprodução, fazendo com que, em teoria, sejam gerados melhores indivíduos a cada geração. Ao término do algoritmo, senão a ótima, a tendência é ter-se uma solução muito próxima a ela.
 
 
-\subsection{Bases de dados}
+\section{Implementação}\label{sec:imple}
 
-\par As bases de dados utilizadas foram retiradas de \cite{frank}. Para o experimento foram utilizadas as seguintes bases:
+\par A linguagem Java foi utilizada para implementar os algoritmos. A rede neural foi codificada como um vetor de números em ponto flutuante, também conhecido como \textit{real-coded} \cite{Liu}. A figura \ref{fig:nn} ilustra esse processo, que foi baseado em \cite{montana}. Desta forma, é possível determinar rapidamente quais são os pesos de entrada e saída de cada neurônio e assim facilitar a implementação dos o\-pe\-ra\-do\-res genéticos. O número de camadas da rede é fixo e consiste em uma camada de entrada, uma camada oculta e uma camada de saída. 
+
+\par  As bases de dados utilizadas foram retiradas de \cite{frank}. Para o experimento foram utilizadas as seguintes bases:
 
 \begin{enumerate}
 	\item \textit{Breast Cancer Wisconsin (Original) Data Set}, doravante denominada \textit{Câncer};
@@ -125,15 +107,12 @@ Com estes cinco componentes, ainda de acordo com \cite{montana}, o AG funciona s
 	\item \textit{Iris Data Set}.
 \end{enumerate}
 
-
-\section{Implementação}\label{sec:imple}
-
-\par A linguagem Java foi utilizada para implementar os algoritmos. A rede neural foi codificada como um vetor de números em ponto flutuante, também conhecido como \textit{real-coded} \cite{Liu}. A figura \ref{fig:nn} ilustra esse processo, que foi baseado em \cite{montana}. Desta forma, é possível determinar rapidamente quais são os pesos de entrada e saída de cada neurônio e assim facilitar a implementação dos o\-pe\-ra\-do\-res genéticos. O número de camadas da rede é fixo e consiste em uma camada de entrada, uma camada oculta e uma camada de saída. Na tabela \ref{tab:params}, temos o número de neurônios de cada camada para cada base de dados a ser testada.
+\par Na tabela \ref{tab:params}, temos o número de neurônios de cada camada para cada base de dados a ser testada.
 
 \begin{table}[h]
 	\center
 	\begin{tabular}{|c|c|c|c|c|}
-		\hline Base  & Atributos (Entradas) & Classes (Saídas) & Escondidos \\ 
+		\hline Base  & Atributos (Entradas) & Classes (Saídas) & Ocultos \\ 
 		\hline Cancer & 9 & 2 & 5 \\ 
 		\hline Pima Indians Diabetes & 8 & 2 & 10 \\ 
 		\hline Glass Identification & 9 & 7 & 10 \\ 
@@ -152,12 +131,12 @@ Com estes cinco componentes, ainda de acordo com \cite{montana}, o AG funciona s
 \label{fig:nn}
 \end{figure}
 
-\par O algoritmo genético foi implementado conforme \cite{essentials}. O \textit{fitness} de cada indivíduo é dado pelo Erro Quadrado Médio (EQM), ou seja, um indivíduo mais apto é aquele que possui o menor valor. O EQM é calculado de acordo com \cite{Liu}.
+\par O Algoritmo Genético foi implementado conforme \cite{essentials}. O \textit{fitness} de cada indivíduo é dado pelo Erro Quadrado Médio (EQM), ou seja, um indivíduo mais apto é aquele que possui o menor valor. O EQM é calculado de acordo com \cite{Liu}. 
 
+\par A seguir temos operadores genéticos utilizados. Seus parâmetros, quando possivel, foram os mesmos das respectivas referências.
 
-\par Os operadores genéticos utilizados foram:
 \begin{enumerate}
-	\item Operadores de Mutação, segundo \cite{montana} e \cite{Liu}:
+	\item Operadores de Mutação descritos em \cite{montana} e \cite{Liu} são:
 	\begin{enumerate}
 		\item Biased Mutate Weights: O valor de um gene pode ser substituído por um outro qualquer da distribuição de probabilidade inicial (distribuição normal com média 0 e desvio padrão 5).
 		\item Unbiased Mutate Weights: Um valor da distribuição de probabilidade inicial é acrescido a um gene.
@@ -178,6 +157,11 @@ Com estes cinco componentes, ainda de acordo com \cite{montana}, o AG funciona s
 
 \end{enumerate}
 
+\par O operador de seleção utilizado, diferente de \cite{Liu} e \cite{montana}, foi o torneio. 
+
+
+\par Além disso foi implementado, para efeitos de comparação, um GA híbrido com backpropagation. A implementacão foi confome \cite{freeman}. Contudo, diferente de \cite{Liu}, neste experimento são executadas cinco iterações do backpropagation logo após a aplicacão dos operadores de mutação, com a finalidade de refinar as solu'c~oes 
+
 \par Os parâmetros utilizados para o Algoritmo Genético foram os seguintes:
 \begin{enumerate}
 	\item Tamanho da População: 50 e 100 indivíduos;
@@ -188,17 +172,17 @@ Com estes cinco componentes, ainda de acordo com \cite{montana}, o AG funciona s
 	\item Probabilidade de mutação: 10\%.
 \end{enumerate}
 
-\par Para a análise dos resultados foi utilizado a validação cruazada \cite{Haykin:1998:NNC:521706}. Na validação cruzada o conjunto de dados é particionado aleatoriamente em um conjunto de teste e um conjunto de treinamento, que ainda é divido em um subconjunto de treinamento e um subconjunto de validação. O conjunto de dados foi separado de acordo com a tabela \ref{tab:db}.
+\par Para a análise dos resultados foi utilizado a média da taxa de acerto das 10 execuções para cada combinação de parâmetros (população, tamanho do torneio, operador de mutação e crossover). O conjunto de dados foi separado de acordo com a tabela \ref{tab:db}.
 
 \begin{table}
 \center
-\begin{tabular}{|c|c|c|c|c|}
-\hline Base & Treinamento & Validação & Teste  & Total \\ 
-\hline Cancer & 350 & 175 & 174 & 699 \\ 
-\hline Pima Indians Diabetes & 252 & 258 & 258 & 768 \\ 
-\hline Glass Identification & 114 & 50 & 50 & 214 \\ 
-\hline Heart & 130 & 70 & 70 & 270 \\ 
-\hline Iris & 70 & 40 & 40 & 150 \\ 
+\begin{tabular}{|c|c|c|c|}
+\hline Base & Treinamento & Teste  & Total \\ 
+\hline Cancer & 525 & 174 & 699 \\ 
+\hline Pima Indians Diabetes & 510 & 258 & 768 \\ 
+\hline Glass Identification & 164 & 50 & 214 \\ 
+\hline Heart & 200 & 70 & 270 \\ 
+\hline Iris & 110 & 40 & 150 \\ 
 \hline 
 \end{tabular} 
 \caption{Separação dos conjuntos de dados}
@@ -210,71 +194,71 @@ Com estes cinco componentes, ainda de acordo com \cite{montana}, o AG funciona s
 
 Foram realizadas 10 execuções para cada combinação possível de:
 \begin{enumerate}
-\item Parâmetros do algoritmo genético (explicitados na seção \ref{sec:imple});
+\item Parâmetros do Algoritmo Genético (explicitados na seção \ref{sec:imple});
 \item Operadores de mutação;
 \item Operadores de cruzamento;
 \end{enumerate}
 
-Para os operadores de mutação e cruzamento, considerou-se também um operador extra, que seleciona aleatoriamente qualquer um dos operadores descritos.
+Para os operadores de mutação e cruzamento, considerou-se também um operador extra, que seleciona aleatoriamente qualquer um dos operadores descritos. Nas figuras a seguir o eixo horizontal representa as gerações e o vertical o fitness médio de cada combinação de parâmetros.
 
 \subsection{Influência dos parâmetros do AG}\label{res:ag}
 
-Um tamanho de torneio maior, mostrou, de uma maneira geral, ter um impacto positivo na média dos valores de fitness. Entretanto, como podemos ver nas figuras \ref{fig:can100.2} e \ref{fig:can100.4}, a média piora em alguns casos e, nos casos em que há melhora, ela é muito pequena, como podemos ver nas figuras \ref{fig:gla50.2} e \ref{fig:gla50.4}.
+Nas figuras \ref{fig:can100.2} e \ref{fig:can100.4} podemos ver que um tamanho de torneio maior mostrou, de uma maneira geral, ter um impacto positivo na média dos valores de fitness. Entretanto, a média piora em alguns casos e, nos casos em que há melhora, ela é muito pequena, como podemos ver nas figuras \ref{fig:gla50.2} e \ref{fig:gla50.4}.
 
 \begin{figure}[htp]
 \center
-\includegraphics[scale=0.4, keepaspectratio]{cancer_100_2.jpg} 
+\includegraphics[scale=0.34, keepaspectratio]{cancer_100_2.png} 
 \caption{Fitness - Câncer; População 100, torneio 2;}
 \label{fig:can100.2}
 \end{figure}
 
 \begin{figure}[hbp]
 \center
-\includegraphics[scale=0.4, keepaspectratio]{cancer_100_4_converted.jpg} 
+\includegraphics[scale=0.34, keepaspectratio]{cancer_100_4_converted.jpg} 
 \caption{Fitness - Câncer; População 100, torneio 4;}
 \label{fig:can100.4}
 \end{figure}
 
 \begin{figure}[htp]
 \center
-\includegraphics[scale=0.4, keepaspectratio]{glass_50_2.jpg} 
+\includegraphics[scale=0.34, keepaspectratio]{glass_50_2.jpg} 
 \caption{Fitness - Glass; População 50, torneio 2;}
 \label{fig:gla50.2}
 \end{figure}
 
 \begin{figure}[hbp]
 \center
-\includegraphics[scale=0.4, keepaspectratio]{glass_50_4.jpg} 
+\includegraphics[scale=0.34, keepaspectratio]{glass_50_4.jpg} 
 \caption{Fitness - Glass; População 50, torneio 4;}
 \label{fig:gla50.4}
 \end{figure}
 
-Já um maior tamanho da população apresenta uma influência bem mais significativa que o tamanho do torneito em praticamente todas as execuções. Podemos notar essa diferença analisando as figuras \ref{fig:dia50.4} e \ref{fig:dia100.4}. Entretanto, ainda assim, a relação de consumo de recursos computacionais, associado ao maior tempo para execução e o ganho real de uma população maior pode não ser vantajoso.
+Analisando as figuras \ref{fig:dia50.4} e \ref{fig:dia100.4} podemos ver que um maior tamanho da população apresenta uma influência bem mais significativa que o tamanho do torneito em praticamente todas as execuções. Entretanto, ainda assim, a relação de consumo de recursos computacionais, associado ao maior tempo para execução e o ganho real de uma população maior pode não ser vantajoso.
 
 \begin{figure}[htp]
 \center
-\includegraphics[scale=0.4, keepaspectratio]{dia_50_4.jpg} 
+\includegraphics[scale=0.33, keepaspectratio]{dia_50_4.jpg} 
 \caption{Fitness - Diabetes; População 50, torneio 4;}
 \label{fig:dia50.4}
 \end{figure}
 
 \begin{figure}[hbp]
 \center
-\includegraphics[scale=0.4, keepaspectratio]{dia_100_4.jpg} 
+\includegraphics[scale=0.33, keepaspectratio]{dia_100_4.jpg} 
 \caption{Fitness - Diabetes; População 100, torneio 4;}
 \label{fig:dia100.4}
 \end{figure}
 
 \begin{figure}[htp]
 \center
-\includegraphics[scale=0.4, keepaspectratio]{hea_100_4.jpg} 
+\includegraphics[scale=0.33, keepaspectratio]{hea_100_4.jpg} 
 \caption{Fitness - Heart; População 100, torneio 4;}
 \label{fig:hea100.4}
 \end{figure}
 
 \begin{figure}[hbp]
 \center
-\includegraphics[scale=0.4, keepaspectratio]{iri_100_2.jpg} 
+\includegraphics[scale=0.33, keepaspectratio]{iri_100_2.jpg} 
 \caption{Fitness - Iris; População 100, torneio 2;}
 \label{fig:iri100.2}
 \end{figure}
@@ -287,38 +271,51 @@ Também é interessante notar que em algumas casos, como o mostrado nas figuras 
 
 \subsection{Taxas de Acerto}
 
-Ao término das execuções, conseguimos analisar qual a taxa de acerto média da rede neural com seus pesos evoluidos através de um algoritmo genético.
+Ao término das execuções, conseguimos analisar qual a taxa de acerto média da rede neural com seus pesos evoluidos através de um Algoritmo Genético.
 
-Na tabela \ref{tab:hitbest}, podemos visualizar as melhores taxas de acerto, tanto para o conjunto de testes, quanto para o conjunto de validação, assim como qual combinação de parâmetros e operadores maximizou o acerto. É interessante notar que apenas dois (dos cinco possíveis) operadores de cruzamento aparecem (Line Recombination e Aleatório). Já os operadores de mutação são mais heterogêneos. Podemos concluir, então, que o cruzamento tem um efeito maior na saída da rede que a mutação. Entretanto, se considerarmos que a mutação ocorre apenas em 10\% das vezes, ao passo que o cruzamento ocorre sempre, este comportamento é esperado.
+Na tabelas \ref{tab:hitbest} e \ref{tab:hitbest2}, podemos visualizar as melhores taxas de acerto para o conjunto de testes com o AG puro e com o AG com backpropagation, assim como qual combinação de parâmetros e operadores maximizou o acerto.  É interessante notar que o operador de cruzamento Line Recombination (dos cinco possíveis) foi que o conseguiu o melhor resultado na maioria das bases testadas. Já os operadores de mutação são mais heterogêneos. Podemos concluir, então, que o cruzamento tem um efeito maior na saída da rede que a mutação. Entretanto, se considerarmos que a mutação ocorre apenas em 10\% das vezes, ao passo que o cruzamento ocorre sempre, este comportamento é esperado.
 
 Também podemos perceber que, em alguns casos, a rede se comportou melhor com uma população e torneio menores, embora na maior parte das execuções uma grande população e um maior torneio tenham superado as outras combinações.
 
-Ao compararmos com a média de acerto para estas bases, na tabela \ref{tab:hitaim}, à excessão da base Câncer, o desempenho da rede foi bem abaixo do esperado, principalmente nas bases Glass e Iris. Analisando as figuras \ref{fig:gla50.4} e \ref{fig:iri100.2}, percebemos que o fitness para estas bases converge rapidamente para um mínimo local e estaguina, não conseguindo sair deste mínimo. Por esse motivo, os valores encontrados para estas bases fica tão distante do esperado.
+Ao compararmos as médias das duas abordagens (AG puro e AG híbrido), percebemos que, em geral, o backpropagation melhorou o desempenho dos testes. Todavia, apenas na base Glass, o AG puro foi um pouco melhor. 
+
+Na tabela \ref{tab:hitaim} temos os valores de acerto esperado para cada base. Comparando esta tabela com o resultado obtido, à exceção da base Câncer e Iris, o desempenho da rede foi bem abaixo do esperado, principalmente na bases Glass. Analisando as figura \ref{fig:gla50.4}, percebemos que o fitness para esta base converge rapidamente para um mínimo local e estaguina, não conseguindo sair deste mínimo. Por esse motivo, os valores encontrados para estas bases fica tão distante do esperado. Outro ponto a ser notado, é que a base que possui o maior desvio padrão. Isso mostra que o algoritomo tende a ficar preso em ótimos locais.
 
 \begin{table}[h]
 \center
 \begin{tabular}{c|c|c|p{3cm}|p{3cm}|c|c|}
 \cline{2-7}
-&  \multicolumn{4}{|c|}{Parâmetros}  & \multicolumn{2}{|c|}{Taxas} \\ \hline
-\multicolumn{1}{|c|}{Base} & Pop & Tor & Mutação & Cruzamento & Teste & Validação \\ \hline
-\multicolumn{1}{|c|}{Câncer} & 100 & 2 & Single Point Random & Aleatório & 0.964 & \textbf{0.954022 }\\ \hline
-\multicolumn{1}{|c|}{Câncer} & 50 & 2 & Aleatório & Line Recombination & \textbf{0.961142 }& 0.959770 \\ \hline
-\multicolumn{1}{|c|}{Diabetes} & 100 & 4 & Single Point Random & Line Recombination & 0.695348 & \textbf{0.690310}\\ \hline
-\multicolumn{1}{|c|}{Diabetes} & 100 & 2 & Unbiased Mutate Weights & Line Recombination & \textbf{0.663953} & 0.692635 \\ \hline
-\multicolumn{1}{|c|}{Glass} & 100 & 4 & NonUniform & Aleatório & 0.414 & \textbf{0.426 }\\ \hline 
-\multicolumn{1}{|c|}{Glass} & 100 & 4 & NonUniform & Aleatório & \textbf{0.414} & 0.426 \\ \hline 
-\multicolumn{1}{|c|}{Heart} & 50 & 2 & Unbiased Mutate Weights & Line Recombination & 0.795714 & \textbf{0.774285} \\ \hline
-\multicolumn{1}{|c|}{Heart} & 100 & 4 & Single Point Random & Line Recombination & \textbf{0.784285} & 0.788571 \\ \hline
-\multicolumn{1}{|c|}{Iris} & 100 & 4 & NonUniform & Aleatório & 0.414 & \textbf{0.426 }\\ \hline 
-\multicolumn{1}{|c|}{Iris} & 100 & 4 & NonUniform & Aleatório & \textbf{0.414} & 0.426 \\ \hline
+&  \multicolumn{4}{|c|}{Parâmetros} & \multicolumn{2}{|c|}{Taxa de acerto} \\ \hline
+\multicolumn{1}{|c|}{Base} & Pop & Tor & Mutação & Cruzamento & Média & Desvio padrão  \\ \hline
+\multicolumn{1}{|c|}{Câncer} & 50 & 2 & Aleatório & Line Recombination & \textbf{0.961142} & 0.000908 \\ \hline
+\multicolumn{1}{|c|}{Diabetes} & 100 & 2 & Unbiased Mutate Weights & Line Recombination & \textbf{0.663953} & 0.002083 \\ \hline
+\multicolumn{1}{|c|}{Glass} & 100 & 4 & NonUniform & Aleatório & \textbf{0.414} & 0.029725 \\ \hline 
+\multicolumn{1}{|c|}{Heart} & 100 & 4 & Single Point Random & Line Recombination & \textbf{0.784285} & 0.005421 \\ \hline
+\multicolumn{1}{|c|}{Iris} & 100 & 4 & Unbiased Mutate Weights & Crossover Weights & \textbf{0.96} & 0.018973 \\ \hline
 \end{tabular}
-\caption{Melhores taxas de acerto}
+\caption{Melhores taxas de acerto para o GA puro}
 \label{tab:hitbest}
+\end{table}
+
+\begin{table}[h]
+\center
+\begin{tabular}{c|c|c|p{3cm}|p{3cm}|c|c|}
+\cline{2-7}
+&  \multicolumn{4}{|c|}{Parâmetros} & \multicolumn{2}{|c|}{Taxa de acerto} \\ \hline
+\multicolumn{1}{|c|}{Base} & Pop & Tor & Mutação & Cruzamento & Média & Desvio padrão  \\ \hline
+\multicolumn{1}{|c|}{Câncer} & 50 & 4 & Biased Mutate Weights & Aleatório & \textbf{0.963218} & 0.00109 \\ \hline
+\multicolumn{1}{|c|}{Diabetes} & 50 & 2 & Unbiased Mutate Weights & Line Recombination & \textbf{0.707751} & 0.017649 \\ \hline
+\multicolumn{1}{|c|}{Glass} & 50 & 4 & Aleatório & Line Recombination & \textbf{0.306} & 0.020871 \\ \hline 
+\multicolumn{1}{|c|}{Heart} & 50 & 4 & Single Point Random & Line Recombination & \textbf{0.798571} & 0.004969 \\ \hline
+\multicolumn{1}{|c|}{Iris} & 50 & 4 & Unbiased Mutate Weights & Crossover Nodes & \textbf{0.9775} & 0.008696 \\ \hline
+\end{tabular}
+\caption{Melhores taxas de acerto para o GA com Backpropagation}
+\label{tab:hitbest2}
 \end{table}
 
 
 \begin{table}[ht]
-\begin{minipage}[b]{0.5\linewidth}\centering
+\center
 \begin{tabular}{|c|c|}
 \hline
 Base & Acerto esperado \\ \hline
@@ -330,27 +327,13 @@ Iris & 0.96 \\ \hline
 \end{tabular}
 \caption{Taxas de acerto esperado}
 \label{tab:hitaim}
-\end{minipage}
-\hspace{0.3cm}
-\begin{minipage}[b]{0.5\linewidth}
-\centering
-\begin{tabular}{|c|c|c|}
-\hline 
-Base & Teste & Validação \\ \hline
-Câncer & 0.914048 & 0.913756 \\ \hline
-Diabetes & 0.619648 & 0.620949 \\ \hline
-Glass & 0.1881 & 0.189014 \\ \hline
-Heart & 0.694551 & 0.695867 \\ \hline
-Iris & 0.1881 & 0.189014 \\ \hline
-\end{tabular}
-\caption{Média das taxas de acerto}
-\label{tab:hitmed}
-\end{minipage}
+
+
 \end{table}
 
 \section{Considerações Finais}
 
-Baseado na análise dos resultados obtidos, podemos notar que, apesar do algoritmo conseguir uma rápida queda nos valores de fitness em poucas gerações, o que aumenta as taxas de acerto da rede, a evolução dos pesos da rede sofre com o problema recorrente aos AGs, de otimização fina. Ao chegar em um certo valor de fitness, por mais que se alterem os códigos genéticos dos filhos, é muito difícil continuar a melhorar a rede, causando uma estagnação dos valores. É provavel que, mesmo que aumentemos o número de gerações, a melhora da rede seja ínfima.
+Baseado na análise dos resultados obtidos, podemos notar que, apesar do algoritmo conseguir uma rápida queda nos valores de fitness em poucas gerações, o que aumenta as taxas de acerto da rede, a evolução dos pesos da rede sofre com o problema recorrente aos AGs, de otimização fina. Ao chegar em um certo valor de fitness, por mais que se alterem os códigos genéticos dos filhos, é muito difícil continuar a melhorar a rede, causando uma estagnação dos valores. É provavel que, mesmo que aumentemos o número de gerações, a melhora da rede seja ínfima. O mesmo acontece com o GA híbrido. Apesar de encontrar na maioria das vezes uma solução melhor o ganho geral é pequeno.
 
 Para evitar isto, se faz necessário a criação de novos (e melhores) operadores genéticos, que consigam impactar a rede de forma que os pesos continuem a evoluir. Além disso, desenvolver um mecanismo de evolução dos operadores, conforme descrito por \cite{montana}, de forma que os operadores sejam escolhidos de acordo com o impacto que este teve anteriormente na rede, pode melhorar ainda mais a evolução dos pesos. Isto pode ser feito em trabalhos futuros.
 
