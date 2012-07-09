@@ -31,18 +31,20 @@ This paper compares the training of a Multi Layer Perceptron using two approache
 \begin{resumo} 
 Este artigo compara o treinamento de um Multi Layer Perceptron usando duas abordagens: um Algoritmo 
 genético puro e um híbrido usando backpropagation. Várias combinações de operadores genéticos são 
-aplicadas para o problema de classificação. Os resultados devem mostrar que a melhor combinação consegue atingir ou ultrapassar os resultados obtidos com o algoritmo clássico de Backpropagation.
+aplicadas para o problema de classificação. Os resultados devem mostrar que a melhor combinação consegue atingir ou ultrapassar os resultados obtidos com o algoritmo clássico de Back propagation.
 \end{resumo}
 
 \section{Introdução}
 
-\par As Redes Neurais Aritificiais é uma das formas mais populares e efetivas para construção de sistemas de aprendizagem \cite{russel}, e são amplamente utilizados em diversas áreas, como xxx, xxx, xxx. Representam uma flexível técnica heurística para reconhecimento de padrões \cite{duda}, além de possuirem a habilidade de realizar computação distribuída, tolerar entradas ruidosas e, é claro, aprender \cite{russel}.
+\par As Redes Neurais Aritificiais são uma das formas mais populares e efetivas para construção de sistemas de aprendizagem \cite{russel}, e são utilizadas nas mais diversas áreas, como, por exemplo, análise financeira \cite{bank}, medicina \cite{medic} e meteorologia \cite{forecast}. Representam uma flexível técnica heurística para reconhecimento de padrões \cite{duda}, além de possuirem a habilidade de realizar computação distribuída, tolerar entradas ruidosas e, é claro, aprender \cite{russel}.
+\par A rede neural mais comumente utilizada é a Multi-layer Perceptron, na qual normalmente se utiliza o algoritmo \emph{back propagation} \cite{rumerhalt} para o treinamento dos pesos das conexões \cite{Liu}. Apesar da popularidade, o \emph{back propagation} tem algumas desvantagens. Por utilizar a gradiente descendente, a performance do treinamento está diretamente relacionada com a superfície de erro do problema, que pode conter mínimos locais, fazendo com que o gradiente descendente não encontre o mínimo global \cite{rumerhalt}.
+\par Os algoritmos genéticos (AG) \cite{goldberg}, por sua vez, tem tido grande sucesso em problemas de busca e de otimização, principalmente em espaços de busca grandes, complexos e pouco conhecidos, onde os métodos de buscas convencionas (enumerativos, heurísticos, \dots) não são apropriados, oferecendo um método válido para pro\-ble\-mas que necessitam de uma busca eficiente e efetiva \cite{herrera}.
+\par O objetivo deste trabalho é treinar uma rede neural artificial utilizando algorítmo genético. \cite{Liu} realiza o treinamento utilizando, além do AG, o \emph{back propagation} para refinar a solução encontrada. Já \cite{montana} utiliza um conjunto variado de operadores genéticos de mutação e cruzamento. Neste trabalho, implementaremos uma versão híbrida dos métodos de treinamentos propostos por \cite{Liu} e \cite{montana} e comparararemos os resultados do treinamento realizado com o AG puro contra o AG com \emph{back propagation}.
+%\par \cite{Liu} realiza o treinamento de uma Rede Neural Artifical usando Algoritmos Genéticos (AG) para o problema de classificação de imagens. Além disso, o Backpropagation é utilizado como uma forma de busca local para refinar a solução encontrada pelo AG. \cite{montana}, por outro lado, utiliza um AG hibrido, onde é introduzido um operador de gradiente.
 
-\par \cite{Liu} realiza o treinamento de uma Rede Neural Artifical usando Algoritmos Genéticos (AG) para o problema de classificação de imagens. Além disso, o Backpropagation é utilizado como uma forma de busca local para refinar a solução encontrada pelo AG. \cite{montana}, por outro lado, utiliza um GA hibrido, onde é introduzido um operador de gradiente.
+%O objetivo deste trabalho é treinar uma Rede Neural Artificial utilizando os mesmos operadores e comparar o resultado de um AG puro com um AG híbrido com backpropagation.
 
-O objetivo deste trabalho é treinar uma Rede Neural Artificial utilizando os mesmos operadores e comparar o resultado de um AG puro com um AG híbrido com backpropagation.
-
-\par Este artigo está organizado da seguinte forma: no capítulo II são apresentados os conceitos de Redes Neurais Artificiais e Algoritmos Genéticos. No capítulo III são apresentados os detalhes de implementação, operadores genéticos e as bases de dados utilizados. O capítulo IV expõe os resultados; e o capítulo V, as conclusões.
+\par Este artigo está organizado da seguinte forma: no capítulo 2 são apresentados os conceitos de Redes Neurais Artificiais e Algoritmos Genéticos. No capítulo 3 são apresentados os detalhes de implementação, operadores genéticos e as bases de dados utilizados. O capítulo 4 expõe os resultados; e o capítulo 5, as conclusões.
 
 \section{Metodologia} \label{sec:metodologia}
 
@@ -53,7 +55,7 @@ O objetivo deste trabalho é treinar uma Rede Neural Artificial utilizando os me
 \par Uma rede neural é definida por quatro parâmetros:
 
 \begin{enumerate}
-	\item Tipo de neurônio: determina como são calculados os valores de entradas e de saída de um neurônio;
+	\item Tipo de neurônio: determina como são tratados os valores de entradas e calculados de saída de um neurônio;
 	\item Arquitetura conexionista: determina como os neurônios se conectam entre si;
 	\item Algoritmo de aprendizado: determina como o conhecimento é armazenado na rede;
 	\item Algoritmo de Recall: determina como o conhecimento da rede é recuperado.
@@ -160,7 +162,7 @@ Com estes cinco componentes, ainda de acordo com \cite{montana}, o AG funciona s
 \par O operador de seleção utilizado, diferente de \cite{Liu} e \cite{montana}, foi o torneio. 
 
 
-\par Além disso foi implementado, para efeitos de comparação, um GA híbrido com backpropagation. A implementacão foi confome \cite{freeman}. Contudo, diferente de \cite{Liu}, neste experimento são executadas cinco iterações do backpropagation logo após a aplicacão dos operadores de mutação, com a finalidade de refinar as solu'c~oes 
+\par Além disso foi implementado, para efeitos de comparação, um AG híbrido com backpropagation. A implementacão foi confome \cite{freeman}. Contudo, diferente de \cite{Liu}, neste experimento são executadas cinco iterações do backpropagation logo após a aplicacão dos operadores de mutação, com a finalidade de refinar as soluções 
 
 \par Os parâmetros utilizados para o Algoritmo Genético foram os seguintes:
 \begin{enumerate}
@@ -203,83 +205,64 @@ Para os operadores de mutação e cruzamento, considerou-se também um operador 
 
 \subsection{Influência dos parâmetros do AG}\label{res:ag}
 
-Nas figuras \ref{fig:can100.2} e \ref{fig:can100.4} podemos ver que um tamanho de torneio maior mostrou, de uma maneira geral, ter um impacto positivo na média dos valores de fitness. Entretanto, a média piora em alguns casos e, nos casos em que há melhora, ela é muito pequena, como podemos ver nas figuras \ref{fig:gla50.2} e \ref{fig:gla50.4}.
+De uma maneira geral, um tamanho de torneio maior mostrou ter um impacto positivo na média dos valores de fitness. Entretanto, a média piora em alguns casos ou, nos casos em que há melhora, ela é muito pequena, como podemos ver nas figuras \ref{fig:gla50.2} e \ref{fig:gla50.4}.
+
+Analisando as figuras \ref{fig:dia50.4} e \ref{fig:dia100.4} podemos ver que um maior tamanho da população apresenta uma influência bem mais significativa que o tamanho do torneio em praticamente todas as execuções. Entretanto, ainda assim, a relação de consumo de recursos computacionais, associado ao maior tempo para execução e o ganho real de uma população maior pode não ser vantajoso.
 
 \begin{figure}[htp]
 \center
-\includegraphics[scale=0.34, keepaspectratio]{cancer_100_2.png} 
-\caption{Fitness - Câncer; População 100, torneio 2;}
-\label{fig:can100.2}
-\end{figure}
-
-\begin{figure}[hbp]
-\center
-\includegraphics[scale=0.34, keepaspectratio]{cancer_100_4_converted.jpg} 
-\caption{Fitness - Câncer; População 100, torneio 4;}
-\label{fig:can100.4}
-\end{figure}
-
-\begin{figure}[htp]
-\center
-\includegraphics[scale=0.34, keepaspectratio]{glass_50_2.jpg} 
+\includegraphics[scale=0.4, keepaspectratio]{glass_50_2.jpg} 
 \caption{Fitness - Glass; População 50, torneio 2;}
 \label{fig:gla50.2}
 \end{figure}
 
 \begin{figure}[hbp]
 \center
-\includegraphics[scale=0.34, keepaspectratio]{glass_50_4.jpg} 
+\includegraphics[scale=0.4, keepaspectratio]{glass_50_4.jpg} 
 \caption{Fitness - Glass; População 50, torneio 4;}
 \label{fig:gla50.4}
 \end{figure}
 
-Analisando as figuras \ref{fig:dia50.4} e \ref{fig:dia100.4} podemos ver que um maior tamanho da população apresenta uma influência bem mais significativa que o tamanho do torneito em praticamente todas as execuções. Entretanto, ainda assim, a relação de consumo de recursos computacionais, associado ao maior tempo para execução e o ganho real de uma população maior pode não ser vantajoso.
-
 \begin{figure}[htp]
 \center
-\includegraphics[scale=0.33, keepaspectratio]{dia_50_4.jpg} 
+\includegraphics[scale=0.4, keepaspectratio]{dia_50_4.jpg} 
 \caption{Fitness - Diabetes; População 50, torneio 4;}
 \label{fig:dia50.4}
 \end{figure}
 
 \begin{figure}[hbp]
 \center
-\includegraphics[scale=0.33, keepaspectratio]{dia_100_4.jpg} 
+\includegraphics[scale=0.4, keepaspectratio]{dia_100_4.jpg} 
 \caption{Fitness - Diabetes; População 100, torneio 4;}
 \label{fig:dia100.4}
 \end{figure}
 
 \begin{figure}[htp]
 \center
-\includegraphics[scale=0.33, keepaspectratio]{hea_100_4.jpg} 
+\includegraphics[scale=0.4, keepaspectratio]{hea_100_4.jpg} 
 \caption{Fitness - Heart; População 100, torneio 4;}
 \label{fig:hea100.4}
 \end{figure}
 
-\begin{figure}[hbp]
-\center
-\includegraphics[scale=0.33, keepaspectratio]{iri_100_2.jpg} 
-\caption{Fitness - Iris; População 100, torneio 2;}
-\label{fig:iri100.2}
-\end{figure}
+
 
 \subsection{Influência dos Operadores Genéticos}
 
-Diferentemente dos parâmetros em \ref{res:ag}, a escolha certa dos operadores genéticos tem um impacto muito grande. Podemos observar facilmente este impacto analisando a figura \ref{fig:hea100.4}. Podemos notar uma grande amplitude entre a pior combinação de operadores, que termina com a média de fitness um pouco maior que 0.15 e a melhor combinação, que termina com um valor de fitness menor que 0.05.
+Diferentemente dos parâmetros em \ref{res:ag}, a escolha certa dos operadores genéticos tem um impacto muito grande. Podemos observar facilmente este impacto analisando a figura \ref{fig:hea100.4}: a diferença entre a pior combinação de operadores, que termina com a média de fitness um pouco maior que 0.15 e a melhor combinação, que termina com um valor de fitness menor que 0.05.
 
-Também é interessante notar que em algumas casos, como o mostrado nas figuras \ref{fig:dia50.4} e \ref{fig:iri100.2}, muitas combinações de operadores mantem os valores de fitness muito próximos entre si e, como visto na figura \ref{fig:dia100.4}, há uma tendência a, em algum ponto, estabilizar, passando muitas gerações sem uma melhora sensível no valor. Estas características encontradas podem ser, em partes, remediadas aplicando-se, tal qual proposto por \cite{montana}, uma espécie de torneio com os operadores, dando preferência para aqueles que estão produzindo um maior impacto na rede.
+Também é interessante notar que em algumas casos, como o mostrado na figura \ref{fig:dia50.4}, muitas combinações de operadores mantem os valores de fitness muito próximos entre si e, como visto na figura \ref{fig:dia100.4}, há uma tendência a, em algum ponto, estabilizar, passando muitas gerações sem uma melhora sensível no valor. Estas características encontradas podem ser, em partes, remediadas aplicando-se, tal qual proposto por \cite{montana}, uma espécie de torneio com os operadores, dando preferência para aqueles que estão produzindo um maior impacto na rede.
 
 \subsection{Taxas de Acerto}
 
 Ao término das execuções, conseguimos analisar qual a taxa de acerto média da rede neural com seus pesos evoluidos através de um Algoritmo Genético.
 
-Na tabelas \ref{tab:hitbest} e \ref{tab:hitbest2}, podemos visualizar as melhores taxas de acerto para o conjunto de testes com o AG puro e com o AG com backpropagation, assim como qual combinação de parâmetros e operadores maximizou o acerto.  É interessante notar que o operador de cruzamento Line Recombination (dos cinco possíveis) foi que o conseguiu o melhor resultado na maioria das bases testadas. Já os operadores de mutação são mais heterogêneos. Podemos concluir, então, que o cruzamento tem um efeito maior na saída da rede que a mutação. Entretanto, se considerarmos que a mutação ocorre apenas em 10\% das vezes, ao passo que o cruzamento ocorre sempre, este comportamento é esperado.
+Na tabelas \ref{tab:hitbest} e \ref{tab:hitbest2}, podemos visualizar as melhores taxas de acerto para o conjunto de testes com o AG puro e com o AG com back propagation, assim como qual combinação de parâmetros e operadores maximizou o acerto.  É interessante notar que o operador de cruzamento Line Recombination (dos cinco possíveis) foi que o conseguiu o melhor resultado na maioria das bases testadas. Já os operadores de mutação são mais heterogêneos. Podemos concluir, então, que o cruzamento tem um efeito maior na saída da rede que a mutação. Entretanto, se considerarmos que a mutação ocorre apenas em 10\% das vezes, ao passo que o cruzamento ocorre sempre, este comportamento é esperado.
 
-Também podemos perceber que, em alguns casos, a rede se comportou melhor com uma população e torneio menores, embora na maior parte das execuções uma grande população e um maior torneio tenham superado as outras combinações.
+Também podemos perceber que, em alguns casos, a rede se comportou melhor com uma população e torneio menores, embora na maior parte das execuções uma grande população e um maior tamanho de torneio tenham superado as outras combinações.
 
-Ao compararmos as médias das duas abordagens (AG puro e AG híbrido), percebemos que, em geral, o backpropagation melhorou o desempenho dos testes. Todavia, apenas na base Glass, o AG puro foi um pouco melhor. 
+Ao compararmos as médias das duas abordagens (AG puro e AG híbrido), percebemos que, em geral, o back propagation melhorou o desempenho dos testes. Todavia, apenas na base Glass, o AG puro foi um pouco melhor. 
 
-Na tabela \ref{tab:hitaim} temos os valores de acerto esperado para cada base. Comparando esta tabela com o resultado obtido, à exceção da base Câncer e Iris, o desempenho da rede foi bem abaixo do esperado, principalmente na bases Glass. Analisando as figura \ref{fig:gla50.4}, percebemos que o fitness para esta base converge rapidamente para um mínimo local e estaguina, não conseguindo sair deste mínimo. Por esse motivo, os valores encontrados para estas bases fica tão distante do esperado. Outro ponto a ser notado, é que a base que possui o maior desvio padrão. Isso mostra que o algoritomo tende a ficar preso em ótimos locais.
+Na tabela \ref{tab:hitaim} temos os valores de acerto esperado para cada base. Comparando esta tabela com o resultado obtido, à exceção da base Câncer e Iris, o desempenho da rede foi bem abaixo do esperado, principalmente na bases Glass. Analisando as figura \ref{fig:gla50.4}, percebemos que o fitness para esta base converge rapidamente para um mínimo local e estaciona, não conseguindo sair deste mínimo. Por esse motivo, os valores encontrados para estas bases são relativamentes baixos. Outro ponto a ser notado, é que a base que possui o maior desvio padrão. Isso mostra que o AG tende a ficar preso em ótimos locais.
 
 \begin{table}[h]
 \center
@@ -293,7 +276,7 @@ Na tabela \ref{tab:hitaim} temos os valores de acerto esperado para cada base. C
 \multicolumn{1}{|c|}{Heart} & 100 & 4 & Single Point Random & Line Recombination & \textbf{0.784285} & 0.005421 \\ \hline
 \multicolumn{1}{|c|}{Iris} & 100 & 4 & Unbiased Mutate Weights & Crossover Weights & \textbf{0.96} & 0.018973 \\ \hline
 \end{tabular}
-\caption{Melhores taxas de acerto para o GA puro}
+\caption{Melhores taxas de acerto para o AG puro}
 \label{tab:hitbest}
 \end{table}
 
@@ -309,31 +292,30 @@ Na tabela \ref{tab:hitaim} temos os valores de acerto esperado para cada base. C
 \multicolumn{1}{|c|}{Heart} & 50 & 4 & Single Point Random & Line Recombination & \textbf{0.798571} & 0.004969 \\ \hline
 \multicolumn{1}{|c|}{Iris} & 50 & 4 & Unbiased Mutate Weights & Crossover Nodes & \textbf{0.9775} & 0.008696 \\ \hline
 \end{tabular}
-\caption{Melhores taxas de acerto para o GA com Backpropagation}
+\caption{Melhores taxas de acerto para o AG com back propagation}
 \label{tab:hitbest2}
 \end{table}
 
 
-\begin{table}[ht]
+
+\begin{table}[h!]
 \center
-\begin{tabular}{|c|c|}
+\begin{tabular}{|c|c|c|}
 \hline
-Base & Acerto esperado \\ \hline
-Câncer & 0.96 \\ \hline
-Diabetes & 0.77 \\ \hline
-Glass & 0.63 \\ \hline
-Heart & 0.82 \\ \hline
-Iris & 0.96 \\ \hline
+Base & Taxa de acerto média & Desvio padrão\\ \hline
+Câncer & 0.55 & 0.116563 \\ \hline
+Diabetes & 0.46 & 0.195496 \\ \hline
+Glass & 0.29 & 0.093893 \\ \hline
+Heart & 0.52 & 0,079910 \\ \hline
+Iris & 0.45 & 0.108857 \\ \hline
 \end{tabular}
-\caption{Taxas de acerto esperado}
+\caption{Taxas de acerto do back propagation}
 \label{tab:hitaim}
-
-
 \end{table}
 
 \section{Considerações Finais}
 
-Baseado na análise dos resultados obtidos, podemos notar que, apesar do algoritmo conseguir uma rápida queda nos valores de fitness em poucas gerações, o que aumenta as taxas de acerto da rede, a evolução dos pesos da rede sofre com o problema recorrente aos AGs, de otimização fina. Ao chegar em um certo valor de fitness, por mais que se alterem os códigos genéticos dos filhos, é muito difícil continuar a melhorar a rede, causando uma estagnação dos valores. É provavel que, mesmo que aumentemos o número de gerações, a melhora da rede seja ínfima. O mesmo acontece com o GA híbrido. Apesar de encontrar na maioria das vezes uma solução melhor o ganho geral é pequeno.
+Baseado na análise dos resultados obtidos, podemos notar que, apesar do algoritmo conseguir uma rápida queda nos valores de fitness em poucas gerações, o que aumenta as taxas de acerto da rede, a evolução dos pesos da rede sofre com o problema recorrente aos AGs, de otimização fina. Ao chegar em um certo valor de fitness, por mais que se alterem os códigos genéticos dos filhos, é muito difícil continuar a melhorar a rede, causando uma estagnação dos valores. É provavel que, mesmo que aumentemos o número de gerações, a melhora da rede seja ínfima. O mesmo acontece com o AG híbrido. Apesar de encontrar na maioria das vezes uma solução melhor o ganho geral é pequeno.
 
 Para evitar isto, se faz necessário a criação de novos (e melhores) operadores genéticos, que consigam impactar a rede de forma que os pesos continuem a evoluir. Além disso, desenvolver um mecanismo de evolução dos operadores, conforme descrito por \cite{montana}, de forma que os operadores sejam escolhidos de acordo com o impacto que este teve anteriormente na rede, pode melhorar ainda mais a evolução dos pesos. Isto pode ser feito em trabalhos futuros.
 
