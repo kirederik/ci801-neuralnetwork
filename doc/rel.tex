@@ -5,7 +5,9 @@
 \usepackage{graphicx,url}
 
 \usepackage[brazil]{babel}   
-\usepackage[utf8x]{inputenc}  
+\usepackage[utf8x]{inputenc} 
+\usepackage{multirow} 
+\usepackage{placeins}
 
      
 \sloppy
@@ -25,7 +27,7 @@
 \maketitle
 
 \begin{abstract}
-This paper compares the training of a Multi Layer Perceptron using two approaches: a pure Genetic Algoritthm and a hybrid one using backpropagation. Various combinations of genetic operators are applied to the problem of classification.The results should show that the best combination can meet or exceed the results obtained with the classic Backpropagation algorithm.
+This paper compares the training of a Multi Layer Perceptron using two approaches: a pure Genetic Algoritthm and a hybrid one using backpropagation. Various combinations of genetic operators are applied to the problem of classification.The results should show that the best combination can meet or exceed the results obtained with the classic back propagation algorithm.
 \end{abstract}
      
 \begin{resumo} 
@@ -46,9 +48,9 @@ aplicadas para o problema de classificação. Os resultados devem mostrar que a 
 
 \par Este artigo está organizado da seguinte forma: no capítulo 2 são apresentados os conceitos de Redes Neurais Artificiais e Algoritmos Genéticos. No capítulo 3 são apresentados os detalhes de implementação, operadores genéticos e as bases de dados utilizados. O capítulo 4 expõe os resultados; e o capítulo 5, as conclusões.
 
-\section{Metodologia} \label{sec:metodologia}
+%\section{Metodologia} \label{sec:metodologia}
 
-\subsection{Redes Neurais}
+\section{Redes Neurais}
 %\section{Redes Neurais}
 
 \par Segundo \cite{kasabov} uma Rede Neural Artifical é um modelo computacional biologicamente inspirado no cérebro humano que consiste de elementos de processamento (neurônios) e conexões entre eles (pesos) que representam a memória do sistema. O primeiro modelo de neurônio artificial foi proposto por McCulloch e Pitts em 1943. 
@@ -67,10 +69,10 @@ aplicadas para o problema de classificação. Os resultados devem mostrar que a 
 
 \par O MLP tornou-se bastante utilizado com surgimento do algoritmo Backprogation como algoritmo de aprendizado. Contudo, neste trabalho, para realizar o treinamento da rede neural, será implementado duas abordagens: uma utilizado um Algoritmo Genético puro e a outra um Algoritmo Genético híbrido, o qual introduz a execução do backpropagation logo após a aplicação dos operadores de mutação. Todavia, por conta do custo, apenas um pequeno número de iterações do backprogation será utilizado.
 
-\subsection{Algoritmos Genéticos}
-%\section{Algoritmos Genéticos}
+%\subsection{Algoritmos Genéticos}
+\section{Algoritmos Genéticos}
 
-\par O Algoritmo Genético (AG), geralmente referenciado como \emph{algoritmos genéticos}, foi desenvolvido por John Holland na Universidade de Michigan, em 1975, em um dos livros mais famosos da área, \emph{Adaptation in Natural and Artificial Systems}, publicado pela editora \emph{University of Michigan Press} \cite{essentials:pop}.
+\par O Algoritmo Genético (AG), geralmente referenciado como \emph{algoritmos genéticos}, foi desenvolvido por John Holland na Universidade de Michigan, em 1975, em um dos livros mais famosos da área, \emph{Adaptation in Natural and Artificial Systems}, publicado pela editora \emph{University of Michigan Press} \cite{essentials}.
 \par Os AGs são algoritmos de busca heurística que imitam artificialmente o processo de evolução, da Teoria de Evolução das Espécies, de Darwin. São muito similares a outros algoritmos de busca local, como o Subida de Encosta (\textit{Hill-climbing}), diferindo apenas na quantidade de soluções mantidas a cada iteração e no processo de geração de novas soluções.
 \par De acordo com \cite{montana}, os AGs necessitam de cinco componentes:
 \begin{enumerate}
@@ -264,7 +266,14 @@ Ao compararmos as médias das duas abordagens (AG puro e AG híbrido), percebemo
 
 Na tabela \ref{tab:hitaim} temos os valores de acerto esperado para cada base. Comparando esta tabela com o resultado obtido, à exceção da base Câncer e Iris, o desempenho da rede foi bem abaixo do esperado, principalmente na bases Glass. Analisando as figura \ref{fig:gla50.4}, percebemos que o fitness para esta base converge rapidamente para um mínimo local e estaciona, não conseguindo sair deste mínimo. Por esse motivo, os valores encontrados para estas bases são relativamentes baixos. Outro ponto a ser notado, é que a base que possui o maior desvio padrão. Isso mostra que o AG tende a ficar preso em ótimos locais.
 
-\begin{table}[h]
+Em seguida os resultados dos melhores algoritmos foram analisados com o teste de Kruskal-Wallis \cite{Kruskal}. 
+
+Na tabela \ref{tab:kwresult} podemos observar que para a base Glass o resultado não foi significativo. Isto é, o p-value não é próximo de zero. Logo o resultado entre as três abordagens são muito similares. Para a base diabetes a diferença, apesar de ter sido significativa, não foi tão grande como nas outras três bases. 
+
+Além disso, na tabela \ref{tab:kwcomp}, quando comparamos um algoritmo com outro, o GA puro e o GA híbrido obtiveram resultados muito semelhantes. Sem grandes diferenças entre eles.
+
+
+\begin{table}[hp]
 \center
 \begin{tabular}{c|c|c|p{3cm}|p{3cm}|c|c|}
 \cline{2-7}
@@ -280,7 +289,7 @@ Na tabela \ref{tab:hitaim} temos os valores de acerto esperado para cada base. C
 \label{tab:hitbest}
 \end{table}
 
-\begin{table}[h]
+\begin{table}[hp]
 \center
 \begin{tabular}{c|c|c|p{3cm}|p{3cm}|c|c|}
 \cline{2-7}
@@ -298,7 +307,7 @@ Na tabela \ref{tab:hitaim} temos os valores de acerto esperado para cada base. C
 
 
 
-\begin{table}[h!]
+\begin{table}[!hp]
 \center
 \begin{tabular}{|c|c|c|}
 \hline
@@ -313,11 +322,57 @@ Iris & 0.45 & 0.108857 \\ \hline
 \label{tab:hitaim}
 \end{table}
 
+\begin{table}[!h]
+\center
+\begin{tabular}{|c|c|c|c|}
+\hline Base        & Chi-squared    & df    &  p-value \\
+\hline Cancer      &  19.8513       &  2    &  4.89e-05   \\
+\hline Diabetes    &  13.4965       &  2    &  0.001173   \\
+\hline Glass       &   5.1766       &  2    &  0.07515    \\
+\hline Heart       &  19.5477       &  2    &  5.692e-05  \\
+\hline Iris        &  20.2675       &  2    &  3.972e-05  \\
+\hline 
+\end{tabular} 
+\caption{Resultado do Teste de Kruskal-Wallis}
+\label{tab:kwresult}
+\end{table}
+
+\renewcommand*\arraystretch{1.1}
+
+\begin{table}
+\center
+\begin{tabular}{|c|c|c|c|c|}
+\hline Base & Par de Algoritmos            &  Obs dif &  Critical dif &  Difference \\
+\hline \multirow{3}{*}{Cancer} & Backpropagation - GA puro & 13.95   &  9.425108 &  TRUE \\
+& Backpropagation - GA híbrido &  16.05   &  9.425108     & TRUE       \\
+& GA puro - GA híbrido         &   2.10   &  9.425108     & FALSE      \\
+\hline \multirow{3}{*}{Diabetes} & Backpropagation - GA puro &  10.95 & 9.425108 &  TRUE \\
+& Backpropagation - GA híbrido &  13.65   &  9.425108     &  TRUE       \\
+& GA puro - GA híbrido         &   2.17   &  9.425108     &  FALSE      \\
+\hline \multirow{3}{*}{Glass} &  Backpropagation - GA puro   &   7.85   &  9.425108 &  FALSE  \\
+& Backpropagation - GA híbrido &   0.25   &  9.425108     &  FALSE      \\
+& GA puro - GA híbrido         &   7.60   &  9.425108     &  FALSE      \\
+\hline \multirow{3}{*}{Heart} & Backpropagation - GA puro    &  14.70   &  9.425108 &  TRUE  \\
+& Backpropagation - GA híbrido &  15.30   &  9.425108     &  TRUE       \\
+& GA puro - GA híbrido         &   0.60   &  9.425108     &  FALSE      \\
+\hline \multirow{3}{*}{Iris} & Backpropagation - GA puro  &  13.80   &  9.425108  &  TRUE  \\
+& Backpropagation - GA híbrido &  16.20   &  9.425108     &  TRUE       \\
+& GA puro - GA híbrido         &   2.40   &  9.425108     &  FALSE      \\
+\hline
+\end{tabular}
+\caption{Comparação entre os algoritmos}
+\label{tab:kwcomp}
+\end{table}
+
+\FloatBarrier
 \section{Considerações Finais}
 
 Baseado na análise dos resultados obtidos, podemos notar que, apesar do algoritmo conseguir uma rápida queda nos valores de fitness em poucas gerações, o que aumenta as taxas de acerto da rede, a evolução dos pesos da rede sofre com o problema recorrente aos AGs, de otimização fina. Ao chegar em um certo valor de fitness, por mais que se alterem os códigos genéticos dos filhos, é muito difícil continuar a melhorar a rede, causando uma estagnação dos valores. É provavel que, mesmo que aumentemos o número de gerações, a melhora da rede seja ínfima. O mesmo acontece com o AG híbrido. Apesar de encontrar na maioria das vezes uma solução melhor o ganho geral é pequeno.
 
 Para evitar isto, se faz necessário a criação de novos (e melhores) operadores genéticos, que consigam impactar a rede de forma que os pesos continuem a evoluir. Além disso, desenvolver um mecanismo de evolução dos operadores, conforme descrito por \cite{montana}, de forma que os operadores sejam escolhidos de acordo com o impacto que este teve anteriormente na rede, pode melhorar ainda mais a evolução dos pesos. Isto pode ser feito em trabalhos futuros.
+
+
+
 
 \bibliographystyle{sbc}
 \bibliography{sbc-template}
